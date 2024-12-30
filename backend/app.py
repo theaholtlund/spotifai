@@ -1,6 +1,7 @@
 # Import required libraries
 from flask import Flask, request, jsonify
-from openai_api import generate_playlist_description
+from flask_cors import CORS
+from gemini_api import generate_playlist_description
 from spotify_api import create_playlist, add_tracks_to_playlist, sp
 
 app = Flask(__name__)
