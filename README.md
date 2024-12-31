@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-This project (tentatively) uses OpenAI API to generate playlist themes and Spotify API to create playlists on a user's account.
+This project (tentatively) uses Google Gemini API to generate playlist themes and Spotify API to create playlists on a user's account.
 
 ## 📝 Run the Project
 
