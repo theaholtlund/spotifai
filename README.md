@@ -11,6 +11,11 @@ This project (tentatively) uses Google Gemini API to generate playlist themes an
 3. Install dependencies: `pip install -r backend/requirements.txt`.
 4. Add API keys to `.env`.
 
+## 🔑 API Keys Required
+
+- Gemini API Key, created and located [here](https://aistudio.google.com/app/apikey)
+- Spotify Client ID & Secret, created and located [here](https://developer.spotify.com/dashboard)
+
 ## 📝 Run the Project
 
 1. Run the backend
