@@ -7,18 +7,28 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/search', methods=['POST'])
-def search_songs():
+def search():
     data = request.get_json()
-    query = data.get('query', '')
+    if not data or 'query' not in data:
+        return jsonify({"error": "Missing 'query' parameter in request body"}), 400
+
+    query = data['query']
+    tracks = search_tracks(query)
     
-    if not query:
-        return jsonify({"error": "No query provided"}), 400
-    
-    try:
-        tracks = search_tracks(query)
-        return jsonify(tracks)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    formatted_tracks = []
+    for item in tracks:
+        formatted_tracks.append({
+            'name': item['name'],
+            'artists': [{'name': artist['name']} for artist in item['artists']],
+            'album': {
+                'images': item['album'].get('images', [])
+            },
+            'external_urls': {
+                'spotify': item['external_urls'].get('spotify', '')
+            }
+        })
+    return jsonify({'tracks': formatted_tracks})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
