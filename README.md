@@ -13,12 +13,12 @@ This project (tentatively) uses Google Gemini API to generate playlist themes an
 
 ## 🔑 API Keys Required
 
-- Gemini API Key, created and located [here](https://aistudio.google.com/app/apikey)
-- Spotify Client ID & Secret, created and located [here](https://developer.spotify.com/dashboard)
+- Gemini API Key, created and located [here](https://aistudio.google.com/app/apikey).
+- Spotify Client ID & Secret, created and located [here](https://developer.spotify.com/dashboard).
 
 ## 📝 Run the Project
 
-1. Run the backend
+1. Run the backend:
 
 ```bash
 python backend/app.py
