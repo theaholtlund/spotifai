@@ -2,19 +2,18 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
-import os
 
 # Load environment variables
 load_dotenv()
 
 # Spotify authentication
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id=os.getenv("SPOTIFY_CLIENT_ID"), 
-    client_secret=os.getenv("SPOTIFY_CLIENT_SECRET")
+    client_id="YOUR_CLIENT_ID", 
+    client_secret="YOUR_CLIENT_SECRET"
 ))
 
 def search_tracks(query):
-    # Sanitize the query and limit characters
+    # Sanitise the query to ensure it is valid and under 250 characters
     sanitized_query = query.split('\n')[0].split(':')[0]
     sanitized_query = sanitized_query[:250]
     
