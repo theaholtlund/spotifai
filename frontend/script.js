@@ -1,21 +1,34 @@
-function generatePlaylist() {
-  const prompt = document.getElementById("prompt").value;
-  console.log("Sending prompt:", prompt);
-  fetch("http://localhost:5000/generate", {
+function searchSongs() {
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchInput) {
+    console.error("Search input field not found!");
+    return;
+  }
+
+  const query = searchInput.value.trim();
+  if (!query) {
+    console.error("Query cannot be empty");
+    return;
+  }
+
+  fetch("http://localhost:5000/search", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query: query }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then((data) => {
-      console.log("Response data:", data);
-      document.getElementById(
-        "output"
-      ).innerText = `Playlist Created: ${data.description}`;
+      console.log("Search Results:", data);
     })
     .catch((error) => {
       console.error("Error:", error);
-      document.getElementById("output").innerText =
-        "Failed to create playlist.";
     });
 }

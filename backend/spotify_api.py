@@ -1,22 +1,21 @@
 # Import required libraries
-import os
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id=os.getenv('SPOTIPY_CLIENT_ID'),
-    client_secret=os.getenv('SPOTIPY_CLIENT_SECRET'),
-    redirect_uri=os.getenv('SPOTIPY_REDIRECT_URI'),
-    scope=os.getenv('SPOTIPY_SCOPE')
+# Spotify authentication
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
+    client_id="YOUR_CLIENT_ID", 
+    client_secret="YOUR_CLIENT_SECRET"
 ))
 
-def create_playlist(user_id, name, description):
-    playlist = sp.user_playlist_create(user=user_id, name=name, public=True, description=description)
-    return playlist['id']
-
-def add_tracks_to_playlist(playlist_id, tracks):
-    sp.playlist_add_items(playlist_id, tracks)
+def search_tracks(query):
+    # Sanitise the query to ensure it's valid and under 250 characters
+    sanitized_query = query.split('\n')[0].split(':')[0]
+    sanitized_query = sanitized_query[:250]
+    
+    results = sp.search(q=sanitized_query, type='track', limit=5)
+    return results['tracks']['items']
