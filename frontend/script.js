@@ -26,9 +26,47 @@ function searchSongs() {
       return response.json();
     })
     .then((data) => {
-      console.log("Search Results:", data);
+      console.log("API Response:", data); // Debugging API response
+      displayResults(data.tracks || []);
     })
     .catch((error) => {
       console.error("Error:", error);
+      document.getElementById(
+        "results"
+      ).innerHTML = `<p class="error">Failed to fetch results. Please try again.</p>`;
     });
+}
+
+function displayResults(tracks) {
+  const resultsContainer = document.getElementById("results");
+  resultsContainer.innerHTML = ""; // Clear previous results
+
+  if (!Array.isArray(tracks) || tracks.length === 0) {
+    resultsContainer.innerHTML = `<p>No results found.</p>`;
+    return;
+  }
+
+  tracks.forEach((track) => {
+    const trackElement = document.createElement("div");
+    trackElement.className = "track";
+
+    trackElement.innerHTML = `
+      <div class="track-card">
+        <img src="${track.album?.images[0]?.url || ""}" alt="${
+      track.name
+    }" class="track-image">
+        <div class="track-details">
+          <h3>${track.name}</h3>
+          <p><strong>Artist:</strong> ${track.artists
+            .map((artist) => artist.name)
+            .join(", ")}</p>
+          <a href="${
+            track.external_urls?.spotify || "#"
+          }" target="_blank" class="spotify-link">Listen on Spotify</a>
+        </div>
+      </div>
+    `;
+
+    resultsContainer.appendChild(trackElement);
+  });
 }
