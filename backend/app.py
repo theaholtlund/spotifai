@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/search', methods=['POST'])
-def search_tracks_with_refinement():
+def search_songs_with_gemini_suggestions():
     data = request.get_json()
 
     # Check if the query is present in the request
@@ -20,8 +20,6 @@ def search_tracks_with_refinement():
         return jsonify({"error": "Query is required"}), 400
 
     query = data['query'].strip()
-
- 
 
     # Get song suggestions from Gemini API
     gemini_songs = get_songs_from_gemini(query)
@@ -34,13 +32,33 @@ def search_tracks_with_refinement():
     song_artist_pairs = extract_song_and_artist(gemini_songs)
     print("Song artist bla bla: ", song_artist_pairs)
 
-    # Search Spotify using the refined query
-    tracks = search_tracks(refined_query)
+    # Search Spotify for those songs individually
+    all_tracks = []
+    for song_artist in song_artist_pairs:
+        tracks = search_tracks(song_artist)
+        all_tracks.extend(tracks)
 
-    # Log the refined query and the tracks that will be returned
-    logging.debug(f"Refined query used for Spotify search: {refined_query}")
+    # Limit the results to 5 songs
+    top_5_tracks = all_tracks[:5]
+
+    logging.info(f"Songs found on Spotify: {[track['name'] for track in top_5_tracks]}")
+
+    return jsonify({"tracks": top_5_tracks})
+
+def extract_song_and_artist(gemini_songs):
+    song_artist_pairs = []
     
-    return jsonify({"tracks": tracks})
+    for song in gemini_songs:
+        # Each song is already in the format "Song Title by Artist"
+        if ' by ' in song:
+            try:
+                song_artist_pairs.append(song.strip())
+            except IndexError:
+                logging.warning(f"Skipping invalid song format: {song}")
+        else:
+            logging.warning(f"Skipping invalid song format: {song}")
+
+    return song_artist_pairs
 
 if __name__ == '__main__':
     app.run(debug=True)
