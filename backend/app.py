@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from spotify_api import search_tracks
-from gemini_api import refine_search_query
+from gemini_api import get_songs_from_gemini
 import logging
 
 app = Flask(__name__)
@@ -18,10 +18,18 @@ def search_tracks_with_refinement():
 
     query = data['query'].strip()
 
-    logging.debug(f"Received query from frontend: {query}")
+ 
 
-    # Refine the query using the Gemini API
-    refined_query = refine_search_query(query)
+    # Get song suggestions from Gemini API
+    gemini_songs = get_songs_from_gemini(query)
+
+    # If no songs are returned by Gemini, return an error
+    if not gemini_songs:
+        return jsonify({"error": "No song suggestions found"}), 404
+
+    # Extract the relevant song titles and artist names from Gemini suggestions
+    song_artist_pairs = extract_song_and_artist(gemini_songs)
+    print("Song artist bla bla: ", song_artist_pairs)
 
     # Search Spotify using the refined query
     tracks = search_tracks(refined_query)
