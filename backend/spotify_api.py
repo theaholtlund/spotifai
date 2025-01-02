@@ -2,6 +2,10 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
+import logging
+
+# Setup for logging configuration
+logging.basicConfig(level=logging.INFO)
 
 # Load environment variables
 load_dotenv()

@@ -5,6 +5,9 @@ from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
 
+# Setup for logging configuration
+logging.basicConfig(level=logging.INFO)
+
 app = Flask(__name__)
 CORS(app)
 

@@ -4,7 +4,7 @@ import google.generativeai as genai
 import logging
 
 # Setup for logging configuration
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # Load the API key from environment variable
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
