@@ -1,4 +1,5 @@
 # Import required libraries
+import os
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
@@ -12,14 +13,31 @@ load_dotenv()
 
 # Spotify authentication
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id="YOUR_CLIENT_ID", 
-    client_secret="YOUR_CLIENT_SECRET"
+    client_id=os.getenv('SPOTIFY_CLIENT_ID'),
+    client_secret=os.getenv('SPOTIFY_CLIENT_SECRET')
 ))
 
 def search_tracks(query):
-    # Sanitise the query to ensure it is valid and under 250 characters
-    sanitized_query = query.split('\n')[0].split(':')[0]
-    sanitized_query = sanitized_query[:250]
+    try:
+        # Initialise title and artist
+        title = ""
+        artist = ""
+
+        # Split query into title and artist using last occurrence of the word 'by',
+        parts = query.rsplit(' by ', 1)
+        title = parts[0].strip()
+        artist = parts[1].strip()
+
+        # Build the Spotify search query
+        if title and artist:
+            sanitised_query = f"track:{title} artist:{artist}"
+        else:
+            sanitised_query = f"track:{title}"
+
+        results = sp.search(q=sanitised_query, type='track', limit=1)
+        
+        return results['tracks']['items']
     
-    results = sp.search(q=sanitized_query, type='track', limit=5)
-    return results['tracks']['items']
+    except Exception as e:
+        print(f"Error searching Spotify: {e}")
+        return []
