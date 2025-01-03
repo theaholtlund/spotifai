@@ -14,7 +14,7 @@ def get_songs_from_gemini(keyword):
     try:
         # Ask the Gemini API to provide 5 songs related to the keyword
         model = genai.GenerativeModel('gemini-1.5-pro')
-        response = model.generate_content(f"Give me the title of 5 songs related to the word: {keyword}")
+        response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
 
         # Get the list of songs from the response text
         songs = response.text.strip().split('\n')
