@@ -12,7 +12,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 def get_songs_from_gemini(keyword):
     try:
-        # Ask the Gemini API to provide 5 songs related to the keyword
+        # Ask Gemini API to provide 5 songs related to the keyword
         model = genai.GenerativeModel('gemini-1.5-pro')
         response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
 
@@ -23,12 +23,12 @@ def get_songs_from_gemini(keyword):
         # Clean the songs list to only extract the song title and artist
         cleaned_songs = []
         for song in songs:
-            # Each song is in the format 'X. **Song Title** - Artist'
+            # Each song is in the format '**Song Title** - Artist'
             if '**' in song and '-' in song:
                 try:
                     # Extract the song title and artist
-                    song_title = song.split('**')[1].strip()  # Extract text between ** **
-                    artist_name = song.split('-')[1].strip()  # Extract text after '-'
+                    song_title = song.split('**')[1].strip()  # Extract the text between ** **
+                    artist_name = song.split('-')[1].strip()  # Extract the text after '-'
                     cleaned_songs.append(f"{song_title} by {artist_name}")
                 except IndexError:
                     logging.warning(f"Skipping invalid song format: {song}")
