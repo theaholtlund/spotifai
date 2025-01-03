@@ -16,6 +16,12 @@ This project (tentatively) uses Google Gemini API to generate playlist themes an
 - Gemini API Key, created and located [here](https://aistudio.google.com/app/apikey).
 - Spotify Client ID & Secret, created and located [here](https://developer.spotify.com/dashboard).
 
+## 🎵 How it Works
+
+1. Enter a mood or theme in the frontend UI.
+2. Gemini API generates the song suggestions.
+3. Spotify displays the songs that have been suggested.
+
 ## 📝 Run the Project
 
 1. Run the backend:
