@@ -6,7 +6,7 @@ from gemini_api import get_songs_from_gemini
 import logging
 
 # Setup for logging configuration
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
 CORS(app)
