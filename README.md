@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-This project (tentatively) uses Google Gemini API to generate playlist themes and Spotify API to create playlists on a user's account.
+This project (tentatively) uses Google Gemini API to suggest songs based on a theme and Spotify API to display those songs in the browser.
 
 ## 🛠️ Setup
 
