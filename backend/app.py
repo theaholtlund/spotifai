@@ -11,6 +11,10 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 app = Flask(__name__)
 CORS(app)
 
+# Utility error handler
+def error_response(message, status_code):
+    return jsonify({"error": message}), status_code
+
 @app.route('/search', methods=['POST'])
 def search_songs_with_gemini_suggestions():
     data = request.get_json()
