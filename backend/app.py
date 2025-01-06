@@ -32,17 +32,7 @@ def search_songs_with_gemini_suggestions():
     if not gemini_songs:
         return jsonify({"error": "No song suggestions found"}), 404
 
-    # Extract the relevant song titles and artist names from Gemini suggestions
-    song_artist_pairs = extract_song_and_artist(gemini_songs)
-    print("Song artist bla bla: ", song_artist_pairs)
-
-    # Search Spotify for those songs individually
-    all_tracks = []
-    for song_artist in song_artist_pairs:
-        tracks = search_tracks(song_artist)
-        all_tracks.extend(tracks)
-
-    # Limit the results to 5 songs
+    all_tracks = [track for song in gemini_songs for track in search_tracks(song)]
     top_5_tracks = all_tracks[:5]
 
     logging.info(f"Songs found on Spotify: {[track['name'] for track in top_5_tracks]}")
