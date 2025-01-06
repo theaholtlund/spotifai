@@ -55,3 +55,9 @@ button:hover {
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.track img.track-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
