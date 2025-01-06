@@ -21,7 +21,7 @@ def search_songs_with_gemini_suggestions():
 
     # Check if the query is present in the request
     if not data or 'query' not in data:
-        return jsonify({"error": "Query is required"}), 400
+        return error_response("Query is required", 400)
 
     query = data['query'].strip()
 
