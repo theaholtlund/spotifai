@@ -6,14 +6,15 @@ import logging
 # Setup for logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Load the API key from environment variable
+# Set values for model and API key
+MODEL_NAME = 'gemini-1.5-pro'
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key=GEMINI_API_KEY)
 
 def get_songs_from_gemini(keyword):
     try:
         # Ask Gemini API to provide 5 songs related to the keyword
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
 
         # Get the list of songs from the response text
