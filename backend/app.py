@@ -39,20 +39,5 @@ def search_songs_with_gemini_suggestions():
 
     return jsonify({"tracks": top_5_tracks})
 
-def extract_song_and_artist(gemini_songs):
-    song_artist_pairs = []
-    
-    for song in gemini_songs:
-        # Each song is already in the format "Song Title by Artist"
-        if ' by ' in song:
-            try:
-                song_artist_pairs.append(song.strip())
-            except IndexError:
-                logging.warning(f"Skipping invalid song format: {song}")
-        else:
-            logging.warning(f"Skipping invalid song format: {song}")
-
-    return song_artist_pairs
-
 if __name__ == '__main__':
     app.run(debug=True)
