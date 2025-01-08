@@ -19,7 +19,6 @@ def get_songs_from_gemini(keyword):
 
         # Get the list of songs from the response text
         songs = response.text.strip().split('\n')
-        print("Songs:", songs)
 
         # Clean the songs list to only extract the song title and artist
         cleaned_songs = []
