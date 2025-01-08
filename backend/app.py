@@ -30,7 +30,7 @@ def search_songs_with_gemini_suggestions():
 
     # If no songs are returned by Gemini, return an error
     if not gemini_songs:
-        return jsonify({"error": "No song suggestions found"}), 404
+        return error_response("No song suggestions found", 404)
 
     all_tracks = [track for song in gemini_songs for track in search_tracks(song)]
     top_5_tracks = all_tracks[:5]
