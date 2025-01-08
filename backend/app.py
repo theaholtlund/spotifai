@@ -8,6 +8,7 @@ import logging
 # Setup for logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# Define the Flask instance
 app = Flask(__name__)
 CORS(app)
 
@@ -36,7 +37,6 @@ def search_songs_with_gemini_suggestions():
     top_5_tracks = all_tracks[:5]
 
     logging.info(f"Songs found on Spotify: {[track['name'] for track in top_5_tracks]}")
-
     return jsonify({"tracks": top_5_tracks})
 
 if __name__ == '__main__':
