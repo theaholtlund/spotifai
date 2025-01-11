@@ -16,6 +16,8 @@ function searchSongs() {
     return;
   }
 
+  toggleSpinner(true);
+
   fetch("http://localhost:5000/search", {
     method: "POST",
     headers: {
@@ -37,8 +39,9 @@ function searchSongs() {
       console.error("Error:", error);
       document.getElementById(
         "results"
-      ).innerHTML = `<p class="error">Failed to fetch results. Please try again.</p>`;
-    });
+      ).innerHTML = `<p class="error">Failed to fetch results.</p>`;
+    })
+    .finally(() => toggleSpinner(false));
 }
 
 function displayResults(tracks) {
