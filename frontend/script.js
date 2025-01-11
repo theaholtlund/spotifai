@@ -1,3 +1,7 @@
+function toggleSpinner(show) {
+  document.getElementById("spinner").classList.toggle("hidden", !show);
+}
+
 function searchSongs() {
   const searchInput = document.getElementById("searchInput");
 
