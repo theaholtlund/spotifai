@@ -83,3 +83,7 @@ button:hover {
   text-decoration: none;
   font-size: 14px;
 }
+
+.track-details a:hover {
+  text-decoration: underline;
+}
