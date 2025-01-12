@@ -11,8 +11,9 @@ function searchSongs() {
   }
 
   const query = searchInput.value.trim();
+
   if (!query) {
-    console.error("Query cannot be empty");
+    alert("Please enter a search term.");
     return;
   }
 
