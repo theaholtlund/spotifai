@@ -25,8 +25,7 @@ def get_songs_from_gemini(keyword):
             for song in songs if '**' in song and '-' in song
         ]
         logging.info(f"Song suggestions from Gemini: {cleaned_songs}")
-
         return cleaned_songs
     except Exception as e:
         logging.error(f"Error from Gemini API: {e}")
-        raise Exception(f"Error from Gemini API: {e}")
+        raise Exception("Failed to fetch song suggestions from Gemini API.")
