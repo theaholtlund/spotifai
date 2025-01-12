@@ -20,21 +20,10 @@ def get_songs_from_gemini(keyword):
         # Get the list of songs from the response text
         songs = response.text.strip().split('\n')
 
-        # Clean the songs list to only extract the song title and artist
-        cleaned_songs = []
-        for song in songs:
-            # Each song is in the format '**Song Title** - Artist'
-            if '**' in song and '-' in song:
-                try:
-                    # Extract the song title and artist
-                    song_title = song.split('**')[1].strip()  # Extract the text between ** **
-                    artist_name = song.split('-')[1].strip()  # Extract the text after '-'
-                    cleaned_songs.append(f"{song_title} by {artist_name}")
-                except IndexError:
-                    logging.warning(f"Skipping invalid song format: {song}")
-            else:
-                logging.warning(f"Skipping invalid song format: {song}")
-        
+        cleaned_songs = [
+            f"{song.split('**')[1].strip()} by {song.split('-')[1].strip()}"
+            for song in songs if '**' in song and '-' in song
+        ]
         logging.info(f"Song suggestions from Gemini: {cleaned_songs}")
 
         return cleaned_songs
