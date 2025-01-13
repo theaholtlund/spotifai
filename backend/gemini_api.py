@@ -13,7 +13,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 def get_songs_from_gemini(keyword):
     try:
-        # Ask Gemini API to provide 5 songs related to the keyword
+        # Ask Gemini API to provide five songs related to the keyword
         model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
 
@@ -28,4 +28,4 @@ def get_songs_from_gemini(keyword):
         return cleaned_songs
     except Exception as e:
         logging.error(f"Error from Gemini API: {e}")
-        raise Exception("Failed to fetch song suggestions from Gemini API.")
+        raise Exception("Failed to fetch song suggestions from the Gemini API.")
