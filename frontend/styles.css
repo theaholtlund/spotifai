@@ -87,3 +87,10 @@ button:hover {
 .track-details a:hover {
   text-decoration: underline;
 }
+
+/* Error text for failed searches */
+.error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
