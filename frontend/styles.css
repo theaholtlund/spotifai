@@ -94,3 +94,9 @@ button:hover {
   text-align: center;
   font-weight: bold;
 }
+
+/* Loading spinner */
+.spinner {
+  display: block;
+  margin: 20px auto;
+}
