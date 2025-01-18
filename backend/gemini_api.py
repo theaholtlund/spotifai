@@ -9,7 +9,14 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Set values for model and API key
 MODEL_NAME = 'gemini-1.5-pro'
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-genai.configure(api_key=GEMINI_API_KEY)
+
+# Configure Gemini API client
+try:
+    genai.configure(api_key=GEMINI_API_KEY)
+    logging.info("Gemini API client successfully configured.")
+except Exception as e:
+    logging.critical("Failed to configure Gemini API client.", exc_info=True)
+    raise e
 
 def get_songs_from_gemini(keyword):
     try:
