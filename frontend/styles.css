@@ -28,9 +28,12 @@ h1 {
 /* Search container background */
 .search-background {
   position: relative;
+  padding: 20px;
   display: inline-block;
   background-image: url("../static/graphic-2.jpg");
   background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
 #searchInput {
