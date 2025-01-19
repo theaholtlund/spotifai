@@ -25,6 +25,14 @@ h1 {
   margin: 20px;
 }
 
+/* Search container background */
+.search-background {
+  position: relative;
+  display: inline-block;
+  background-image: url("../static/graphic-2.jpg");
+  background-size: cover;
+}
+
 #searchInput {
   padding: 10px;
   width: 60%;
