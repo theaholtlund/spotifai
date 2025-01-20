@@ -1,3 +1,4 @@
+/* Global body styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,13 +6,14 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Styling for main heading (h1) */
 h1 {
   text-align: center;
   margin-top: 20px;
   color: #1db954;
 }
 
-/* Header graphic styling */
+/* Styling for header graphic */
 .header-graphic {
   display: block;
   margin: 10px auto;
