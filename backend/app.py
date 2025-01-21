@@ -14,6 +14,8 @@ CORS(app)
 
 # Utility error handler
 def error_response(message, status_code):
+    """Utility function to create standardised error responses."""
+    logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
 
 @app.route('/search', methods=['POST'])
