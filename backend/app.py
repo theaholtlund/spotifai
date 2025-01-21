@@ -20,26 +20,32 @@ def error_response(message, status_code):
 
 @app.route('/search', methods=['POST'])
 def search_songs_with_gemini_suggestions():
-    data = request.get_json()
+    try:
+        data = request.get_json()
 
-    # Check if the query is present in the request
-    if not data or 'query' not in data:
-        return error_response("Query is required", 400)
+        # Validate request payload
+        if not data or 'query' not in data:
+            return error_response("Query is required", 400)
 
-    query = data['query'].strip()
+        query = data['query'].strip()
 
-    # Get song suggestions from Gemini API
-    gemini_songs = get_songs_from_gemini(query)
+        if not query:
+            return error_response("Query cannot be empty", 400)
 
-    # If no songs are returned by Gemini, return an error
-    if not gemini_songs:
-        return error_response("No song suggestions found", 404)
+        # Get song suggestions from Gemini API
+        gemini_songs = get_songs_from_gemini(query)
 
-    all_tracks = [track for song in gemini_songs for track in search_tracks(song)]
-    top_5_tracks = all_tracks[:5]
+        if not gemini_songs:
+            return error_response("No song suggestions found", 404)
 
-    logging.info(f"Songs found on Spotify: {[track['name'] for track in top_5_tracks]}")
-    return jsonify({"tracks": top_5_tracks})
+        all_tracks = [track for song in gemini_songs for track in search_tracks(song)]
+        top_5_tracks = all_tracks[:5] if all_tracks else []
+
+        logging.info(f"Top 5 Songs found on Spotify: {[track['name'] for track in top_5_tracks]}")
+        return jsonify({"tracks": top_5_tracks})
+
+    except Exception as e:
+        return error_response("Internal server error", 500)
 
 if __name__ == '__main__':
     app.run(debug=True)
