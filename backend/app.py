@@ -12,7 +12,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 app = Flask(__name__)
 CORS(app)
 
-# Utility error handler
 def error_response(message, status_code):
     """Utility function to create standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
@@ -38,6 +37,7 @@ def search_songs_with_gemini_suggestions():
         if not gemini_songs:
             return error_response("No song suggestions found", 404)
 
+        # Search for tracks on Spotify based on Gemini suggestions
         all_tracks = [track for song in gemini_songs for track in search_tracks(song)]
         top_5_tracks = all_tracks[:5] if all_tracks else []
 
