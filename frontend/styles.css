@@ -59,6 +59,7 @@ button {
   cursor: pointer;
 }
 
+/* Styling for buttons on hover */
 button:hover {
   background-color: #14833b;
 }
@@ -83,34 +84,40 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for track images */
 .track img.track-image {
   width: 80px;
   height: 80px;
   object-fit: cover;
 }
 
+/* Styling for track details */
 .track-details {
   padding: 10px;
   flex: 1;
 }
 
+/* Styling for track title */
 .track-details h3 {
   margin: 0;
   font-size: 16px;
 }
 
+/* Styling for track description */
 .track-details p {
   margin: 5px 0;
   font-size: 14px;
   color: #666;
 }
 
+/* Styling for track links */
 .track-details a {
   color: #1db954;
   text-decoration: none;
   font-size: 14px;
 }
 
+/* Styling for track links on hover*/
 .track-details a:hover {
   text-decoration: underline;
 }
@@ -121,6 +128,7 @@ footer {
   margin-top: 20px;
 }
 
+/* Styling for footer graphic */
 .footer-graphic {
   width: 200px; /* Adjust size as needed */
   height: 200px;
