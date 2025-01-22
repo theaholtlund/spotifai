@@ -146,3 +146,8 @@ footer {
   height: 40px;
   animation: spin 1s linear infinite;
 }
+
+/* Styling for hidden spinner state */
+.spinner.hidden {
+  display: none;
+}
