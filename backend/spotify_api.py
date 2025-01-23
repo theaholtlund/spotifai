@@ -12,10 +12,15 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(m
 load_dotenv()
 
 # Spotify authentication
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id=os.getenv('SPOTIFY_CLIENT_ID'),
-    client_secret=os.getenv('SPOTIFY_CLIENT_SECRET')
-))
+try:
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
+        client_id=os.getenv('SPOTIFY_CLIENT_ID'),
+        client_secret=os.getenv('SPOTIFY_CLIENT_SECRET')
+    ))
+    logging.info("Spotify client successfully authenticated.")
+except Exception as e:
+    logging.critical("Failed to authenticate Spotify client.", exc_info=True)
+    raise e
 
 def search_tracks(query):
     try:
