@@ -23,6 +23,10 @@ except Exception as e:
     raise e
 
 def search_tracks(query):
+    """
+    Search for tracks on Spotify based on a query in the format 'Title by Artist'.
+    Returns a list of tracks or an empty list if no results are found.
+    """
     try:
         # Initialise title and artist
         title = ""
