@@ -28,11 +28,6 @@ def search_tracks(query):
     Returns a list of tracks or an empty list if no results are found.
     """
     try:
-        # Initialise title and artist
-        title = ""
-        artist = ""
-
-        # Split query into title and artist using last occurrence of the word 'by',
         parts = query.rsplit(' by ', 1)
         title = parts[0].strip()
         artist = parts[1].strip()
