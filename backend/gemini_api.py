@@ -19,10 +19,7 @@ except Exception as e:
     raise e
 
 def get_songs_from_gemini(keyword):
-    """
-    Fetch song suggestions from the Gemini API based on the provided keyword.
-    Returns a list of songs in the format 'Title by Artist'.
-    """
+    """Fetch song suggestions from the Gemini API based on search keyword."""
     try:
         # Ask Gemini API to provide five songs related to the keyword
         model = genai.GenerativeModel(MODEL_NAME)

@@ -23,10 +23,7 @@ except Exception as e:
     raise e
 
 def search_tracks(query):
-    """
-    Search for tracks on Spotify based on a query in the format 'Title by Artist'.
-    Returns a list of tracks or an empty list if no results are found.
-    """
+    """Search for tracks on Spotify based on a query input of title and artist."""
     try:
         parts = query.rsplit(' by ', 1)
         title = parts[0].strip()
