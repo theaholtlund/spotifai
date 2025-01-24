@@ -21,11 +21,10 @@ except Exception as e:
 def get_songs_from_gemini(keyword):
     """Fetch song suggestions from the Gemini API based on search keyword."""
     try:
-        # Ask Gemini API to provide five songs related to the keyword
         model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
 
-        # Get the list of songs from the response text
+        # Parse and clean response
         songs = response.text.strip().split('\n')
 
         cleaned_songs = [
@@ -34,6 +33,7 @@ def get_songs_from_gemini(keyword):
         ]
         logging.info(f"Song suggestions from Gemini: {cleaned_songs}")
         return cleaned_songs
+
     except Exception as e:
         logging.error(f"Error from Gemini API: {e}")
         raise Exception("Failed to fetch song suggestions from the Gemini API.")
