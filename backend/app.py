@@ -46,6 +46,7 @@ def search_songs_with_gemini_suggestions():
         return jsonify({"tracks": top_5_tracks})
 
     except Exception as e:
+        logging.exception("An unexpected error occurred")
         return error_response("Internal server error", 500)
 
 if __name__ == '__main__':
