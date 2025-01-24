@@ -26,14 +26,12 @@ def search_tracks(query):
     """Search for tracks on Spotify based on a query input of title and artist."""
     try:
         parts = query.rsplit(' by ', 1)
-        title = parts[0].strip()
-        artist = parts[1].strip()
+        if len(parts) != 2:
+            logging.warning(f"Invalid query format: {query}")
+            return []
 
-        # Build the Spotify search query
-        if title and artist:
-            sanitised_query = f"track:{title} artist:{artist}"
-        else:
-            sanitised_query = f"track:{title}"
+        title, artist = parts
+        sanitised_query = f"track:{title.strip()} artist:{artist.strip()}"
 
         results = sp.search(q=sanitised_query, type='track', limit=1)
         
