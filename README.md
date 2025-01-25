@@ -24,10 +24,16 @@ This project (tentatively) uses Google Gemini API to suggest songs based on a th
 
 ## 📝 Run the Project
 
-1. Run the backend:
+1. Activate the venv (Mac/Linux);
+
+```bash
+source venv/bin/activate
+```
+
+2. Run the backend:
 
 ```bash
 python backend/app.py
 ```
 
-2. Open frontend/index.html in your browser.
+3. Open frontend/index.html in your browser.
