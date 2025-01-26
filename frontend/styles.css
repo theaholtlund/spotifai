@@ -22,11 +22,9 @@ header {
 
 /* Styling for header graphic */
 .header-graphic {
-  display: block;
-  margin: 10px auto;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 80%;
+  max-width: 900px;
+  height: 100px;
 }
 
 /* Styling for search container */
