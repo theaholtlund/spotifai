@@ -56,8 +56,9 @@ header {
 
 /* Styling for buttons */
 button {
-  padding: 10px 15px;
-  margin-left: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #1db954;
   color: #fff;
   border: none;
@@ -67,7 +68,7 @@ button {
 
 /* Styling for buttons on hover */
 button:hover {
-  background-color: #14833b;
+  background-color: #17a74a;
 }
 
 /* Styling for results container */
