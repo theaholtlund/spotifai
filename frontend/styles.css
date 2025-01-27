@@ -29,8 +29,9 @@ header {
 
 /* Styling for search container */
 .search-container {
-  text-align: center;
-  margin: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* Search container background styling */
