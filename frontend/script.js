@@ -78,3 +78,12 @@ function displayResults(tracks) {
     resultsContainer.appendChild(trackElement);
   });
 }
+
+function displayNotFound(notFound) {
+  const notFoundContainer = document.getElementById("not-found");
+
+  if (!Array.isArray(notFound) || notFound.length === 0) {
+    notFoundContainer.style.display = "none"; // Hide if no songs are missing
+    return;
+  }
+}
