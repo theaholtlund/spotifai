@@ -37,12 +37,17 @@ header {
 /* Search container background styling */
 .search-background {
   position: relative;
-  padding: 20px;
-  display: inline-block;
-  background-image: url("../static/graphic-2.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background: url("../static/graphic-1.jpg") left top no-repeat;
+  background-size: 30% auto, 30% auto, 30% auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for search input field */
