@@ -144,10 +144,10 @@ footer {
 
 /* Styling for footer graphic */
 .footer-graphic {
-  width: 200px; /* Adjust size as needed */
-  height: 200px;
-  object-fit: cover;
-  margin: 0 auto;
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+  height: 100px;
 }
 
 /* Styling for error messages */
