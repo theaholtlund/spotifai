@@ -55,9 +55,8 @@ header {
 /* Styling for search input field */
 #searchInput {
   padding: 10px;
-  width: 60%;
-  max-width: 400px;
-  border: 1px solid #ccc;
+  font-size: 16px;
+  border: 2px solid #ddd;
   border-radius: 5px;
 }
 
