@@ -81,11 +81,8 @@ button:hover {
 
 /* Styling for results container */
 #results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px;
-  gap: 15px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 /* Styling for individual track items */
