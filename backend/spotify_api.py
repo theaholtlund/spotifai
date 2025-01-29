@@ -35,8 +35,6 @@ def search_tracks(query):
 
         results = sp.search(q=sanitised_query, type='track', limit=1)
         tracks = results.get('tracks', {}).get('items', [])
-
-        logging.info(f"Tracks found for query '{query}': {len(tracks)}")
         return tracks
     except Exception as e:
         logging.error(f"Error searching Spotify: {e}")
