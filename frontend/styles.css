@@ -68,7 +68,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #1db954;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -136,8 +136,8 @@ button:hover {
 
 /* Styling for footer */
 footer {
-  text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
+  padding: 20px 0;
 }
 
 /* Styling for footer graphic */
