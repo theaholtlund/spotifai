@@ -35,6 +35,7 @@ function searchSongs() {
     .then((data) => {
       console.log("API Response:", data); // Debugging API response
       displayResults(data.tracks || []);
+      displayNotFound(data.not_found || []);
     })
     .catch((error) => {
       console.error("Error:", error);
