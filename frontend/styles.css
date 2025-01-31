@@ -86,14 +86,15 @@ button:hover {
 }
 
 /* Styling for individual track items */
-.track {
+.track-card {
   display: flex;
   align-items: center;
-  width: 300px;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for track images */
