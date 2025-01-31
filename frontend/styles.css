@@ -98,10 +98,11 @@ button:hover {
 }
 
 /* Styling for track images */
-.track img.track-image {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+.track-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 15px;
 }
 
 /* Styling for track details */
