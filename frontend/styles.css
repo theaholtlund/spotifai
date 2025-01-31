@@ -107,8 +107,7 @@ button:hover {
 
 /* Styling for track details */
 .track-details {
-  padding: 10px;
-  flex: 1;
+  text-align: left;
 }
 
 /* Styling for track title */
