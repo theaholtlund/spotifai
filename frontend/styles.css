@@ -119,8 +119,8 @@ button:hover {
   font-weight: bold;
 }
 
-/* Styling for track links on hover*/
-.track-details a:hover {
+/* Styling for links to Spotify on hover */
+.spotify-link:hover {
   text-decoration: underline;
 }
 
