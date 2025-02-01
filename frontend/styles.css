@@ -110,22 +110,10 @@ button:hover {
   text-align: left;
 }
 
-/* Styling for track title */
-.track-details h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
-/* Styling for track description */
-.track-details p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #666;
-}
-
-/* Styling for track links */
-.track-details a {
-  color: #1db954;
+/* Styling for links to Spotify */
+.spotify-link {
+  display: inline-block;
+  margin-top: 5px;
   text-decoration: none;
   font-size: 14px;
 }
