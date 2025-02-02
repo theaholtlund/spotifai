@@ -87,4 +87,21 @@ function displayNotFound(notFound) {
     notFoundContainer.style.display = "none"; // Hide if no songs are missing
     return;
   }
+
+  notFoundContainer.style.display = "block"; // Show only if there are missing songs
+  notFoundContainer.innerHTML = ""; // Clear previous list
+
+  const message = document.createElement("p");
+  message.textContent =
+    "The following songs were suggested but not found on Spotify:";
+  notFoundContainer.appendChild(message);
+
+  const list = document.createElement("ul");
+  notFound.forEach((song) => {
+    const songItem = document.createElement("li");
+    songItem.textContent = `🎵 ${song}`;
+    list.appendChild(songItem);
+  });
+
+  notFoundContainer.appendChild(list);
 }
