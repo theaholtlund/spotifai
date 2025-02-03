@@ -27,7 +27,7 @@ def search_tracks(query):
     try:
         parts = query.rsplit(' by ', 1)
         if len(parts) != 2:
-            logging.warning(f"Invalid query format: {query}")
+            logging.warning(f"Invalid format for query: {query}")
             return []
 
         title, artist = parts
@@ -36,6 +36,7 @@ def search_tracks(query):
         results = sp.search(q=sanitised_query, type='track', limit=1)
         tracks = results.get('tracks', {}).get('items', [])
         return tracks
+
     except Exception as e:
         logging.error(f"Error searching Spotify: {e}")
         return []
