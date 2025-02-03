@@ -12,6 +12,8 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Configure Gemini API client
 try:
+    if not GEMINI_API_KEY:
+        raise ValueError("Missing Gemini API Key")
     genai.configure(api_key=GEMINI_API_KEY)
     logging.info("Gemini API client successfully configured.")
 except Exception as e:
