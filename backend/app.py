@@ -28,6 +28,7 @@ def search_songs_with_gemini_suggestions():
             return error_response("Query is required", 400)
 
         query = data['query'].strip()
+        logging.info(f"Received query: {query}")
 
         if not query:
             return error_response("Query cannot be empty", 400)
