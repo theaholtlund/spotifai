@@ -24,7 +24,7 @@ function searchSongs() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query: query }),
+    body: JSON.stringify({ query }),
   })
     .then((response) => {
       if (!response.ok) {
