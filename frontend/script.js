@@ -51,7 +51,7 @@ function displayResults(tracks) {
   resultsContainer.innerHTML = "";
 
   if (!Array.isArray(tracks) || tracks.length === 0) {
-    resultsContainer.innerHTML = `<p>No results found.</p>`;
+    resultsContainer.innerHTML = `<p class="no-results">No results found.</p>`;
     return;
   }
 
