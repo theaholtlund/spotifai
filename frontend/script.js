@@ -33,7 +33,7 @@ function searchSongs() {
       return response.json();
     })
     .then((data) => {
-      console.log("API Response:", data); // Debugging API response
+      console.log("API Response:", data);
       displayResults(data.tracks || []);
       displayNotFound(data.not_found || []);
     })
@@ -48,7 +48,7 @@ function searchSongs() {
 
 function displayResults(tracks) {
   const resultsContainer = document.getElementById("results");
-  resultsContainer.innerHTML = ""; // Clear previous results
+  resultsContainer.innerHTML = "";
 
   if (!Array.isArray(tracks) || tracks.length === 0) {
     resultsContainer.innerHTML = `<p>No results found.</p>`;
