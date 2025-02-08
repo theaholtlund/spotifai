@@ -40,9 +40,7 @@ def search_songs_with_gemini_suggestions():
             return error_response("No song suggestions found", 404)
 
         # Search for tracks on Spotify based on Gemini suggestions
-        tracks_found = []
-        tracks_not_found = []
-
+        tracks_found, tracks_not_found = [], []
         for song in gemini_songs:
             spotify_results = search_tracks(song)
             if spotify_results:
