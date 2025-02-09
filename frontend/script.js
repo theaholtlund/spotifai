@@ -88,13 +88,8 @@ function displayNotFound(notFound) {
     return;
   }
 
-  notFoundContainer.style.display = "block"; // Show only if there are missing songs
-  notFoundContainer.innerHTML = ""; // Clear previous list
-
-  const message = document.createElement("p");
-  message.textContent =
-    "The following songs were suggested but not found on Spotify:";
-  notFoundContainer.appendChild(message);
+  notFoundContainer.classList.remove("hidden");
+  notFoundContainer.innerHTML = `<p>The following songs were suggested but not found on Spotify:</p>`;
 
   const list = document.createElement("ul");
   notFound.forEach((song) => {
