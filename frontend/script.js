@@ -89,7 +89,7 @@ function displayNotFound(notFound) {
   }
 
   notFoundContainer.classList.remove("hidden");
-  notFoundContainer.innerHTML = `<p>The following songs were suggested but not found on Spotify:</p>`;
+  notFoundContainer.innerHTML = `<p>The following songs were not found on Spotify:</p>`;
 
   const list = document.createElement("ul");
   notFound.forEach((song) => {
