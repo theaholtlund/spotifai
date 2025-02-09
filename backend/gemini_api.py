@@ -36,5 +36,5 @@ def get_songs_from_gemini(keyword):
         logging.info(f"Song suggestions from Gemini: {cleaned_songs}")
         return cleaned_songs
     except Exception as e:
-        logging.error(f"Error fetching song suggestions from Gemini: {e}", exc_info=True)
+        logging.error(f"Gemini API error: {e}", exc_info=True)
         return []
