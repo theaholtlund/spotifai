@@ -13,7 +13,7 @@ app = Flask(__name__)
 CORS(app)
 
 def error_response(message, status_code):
-    """Utility function to create standardised error responses."""
+    """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
 
