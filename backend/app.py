@@ -5,8 +5,8 @@ from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
 
-# Setup for logging configuration
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Setup logging configuration
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Define the Flask instance
 app = Flask(__name__)
