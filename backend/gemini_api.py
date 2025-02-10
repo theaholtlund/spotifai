@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 import logging
 
-# Setup for logging configuration
+# Setup logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Set values for model and API key
