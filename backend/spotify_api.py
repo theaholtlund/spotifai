@@ -19,7 +19,7 @@ try:
     ))
     logging.info("Spotify client successfully authenticated.")
 except Exception as e:
-    logging.critical("Failed to authenticate Spotify client.", exc_info=True)
+    logging.critical("Failed to authenticate Spotify API", exc_info=True)
     raise e
 
 def search_tracks(query):
@@ -27,7 +27,7 @@ def search_tracks(query):
     try:
         parts = query.rsplit(' by ', 1)
         if len(parts) != 2:
-            logging.warning(f"Invalid format for query: {query}")
+            logging.warning(f"Invalid query format: {query}")
             return []
 
         title, artist = parts
