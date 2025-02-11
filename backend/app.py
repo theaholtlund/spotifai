@@ -8,7 +8,7 @@ import logging
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# Define the Flask instance
+# Initialise Flask app
 app = Flask(__name__)
 CORS(app)
 
@@ -33,9 +33,8 @@ def search_songs_with_gemini_suggestions():
         if not query:
             return error_response("Query cannot be empty", 400)
 
-        # Get song suggestions from Gemini API
+        # Fetch song suggestions from Gemini
         gemini_songs = get_songs_from_gemini(query)
-
         if not gemini_songs:
             return error_response("No song suggestions found", 404)
 
