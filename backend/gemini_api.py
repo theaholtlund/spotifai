@@ -4,7 +4,7 @@ import google.generativeai as genai
 import logging
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Set values for model and API key
 MODEL_NAME = 'gemini-1.5-pro'
