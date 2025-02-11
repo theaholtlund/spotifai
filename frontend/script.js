@@ -85,10 +85,13 @@ function displayNotFound(notFound) {
 
   if (!Array.isArray(notFound) || notFound.length === 0) {
     notFoundContainer.classList.add("hidden");
+    notFoundContainer.style.display = "none";
     return;
   }
 
   notFoundContainer.classList.remove("hidden");
+  notFoundContainer.style.display = "block";
+
   notFoundContainer.innerHTML = `<p>The following songs were not found on Spotify:</p>`;
 
   const list = document.createElement("ul");
