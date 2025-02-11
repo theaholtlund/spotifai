@@ -25,7 +25,7 @@ except Exception as e:
 def search_tracks(query):
     """Search for tracks on Spotify based on a query input of title and artist."""
     try:
-        parts = query.rsplit(' by ', 1)
+        parts = query.split(' - ')
         if len(parts) != 2:
             logging.warning(f"Invalid query format: {query}")
             return []
