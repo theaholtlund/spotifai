@@ -19,7 +19,7 @@ def error_response(message, status_code):
 
 @app.route('/search', methods=['POST'])
 def search_songs_with_gemini_suggestions():
-    """Endpoint to search for songs using a query and provide Gemini suggestions."""
+    """Endpoing to search for songs and fetch Gemini suggestions."""
     try:
         data = request.get_json()
 
