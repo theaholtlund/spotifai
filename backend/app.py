@@ -49,8 +49,12 @@ def search_songs_with_gemini_suggestions():
 
         top_5_tracks = tracks_found[:5] if tracks_found else []
 
-        logging.info(f"Tracks not found on Spotify: {tracks_not_found}")
-        return jsonify({"tracks": top_5_tracks, "not_found": tracks_not_found})
+        logging.info(f"Tracks not found: {tracks_not_found}")
+
+        return jsonify({
+            "tracks": tracks_found[:5] if tracks_found else [],
+            "not_found": tracks_not_found
+        })
 
     except Exception as e:
         logging.exception("Unexpected server error")
