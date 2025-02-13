@@ -207,6 +207,7 @@ footer {
     opacity: 0.6;
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
   }
 }
