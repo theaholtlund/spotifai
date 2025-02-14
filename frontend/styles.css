@@ -188,7 +188,9 @@ footer {
   margin: 20px auto;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1db954, #17a74a);
+  animation: pulse 1.2s infinite ease-in-out;
 }
 
 /* Styling for hidden spinner state */
