@@ -42,12 +42,7 @@ def search_songs_with_gemini_suggestions():
         tracks_found, tracks_not_found = [], []
         for song in gemini_songs:
             spotify_results = search_tracks(song)
-            if spotify_results:
-                tracks_found.extend(spotify_results)
-            else:
-                tracks_not_found.append(song)
-
-        top_5_tracks = tracks_found[:5] if tracks_found else []
+            (tracks_found.extend(spotify_results) if spotify_results else tracks_not_found.append(song))
 
         logging.info(f"Tracks not found: {tracks_not_found}")
 
