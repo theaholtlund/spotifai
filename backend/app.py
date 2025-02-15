@@ -23,6 +23,10 @@ def find_tracks_on_spotify(song_list):
 
     for song in song_list:
         spotify_results = search_tracks(song)
+        if spotify_results:
+            tracks_found.extend(spotify_results)
+        else:
+            tracks_not_found.append(song)
 
     return tracks_found, tracks_not_found
 
