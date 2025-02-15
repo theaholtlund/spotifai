@@ -17,6 +17,15 @@ def error_response(message, status_code):
     logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
 
+def find_tracks_on_spotify(song_list):
+    tracks_found = []
+    tracks_not_found = []
+
+    for song in song_list:
+        spotify_results = search_tracks(song)
+
+    return tracks_found, tracks_not_found
+
 @app.route('/search', methods=['POST'])
 def search_songs_with_gemini_suggestions():
     """Endpoint to search for songs and fetch Gemini suggestions."""
