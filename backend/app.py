@@ -18,7 +18,7 @@ def error_response(message, status_code):
     return jsonify({"error": message}), status_code
 
 def find_tracks_on_spotify(song_list):
-    """Search for tracks on Spotify based on list of song names, return tuple of tracks and found tracks not found."""
+    """Search for tracks on Spotify based on list of song names, return tracks and tracks not found."""
     tracks_found = []
     tracks_not_found = []
 
