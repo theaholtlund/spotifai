@@ -1,10 +1,12 @@
 function toggleSpinner(show) {
+  // Toggle the visibility of loading spinner based on parameter
   document.getElementById("spinner").classList.toggle("hidden", !show);
 }
 
 function searchSongs() {
   const searchInput = document.getElementById("searchInput");
 
+  // Ensure search input field exists before proceeding to prevent errors if the element is missing
   if (!searchInput) {
     console.error("Search input field not found!");
     return;
