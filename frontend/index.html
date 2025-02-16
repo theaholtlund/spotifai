@@ -20,13 +20,15 @@
     <main>
       <div class="search-container">
         <div class="search-background">
+          <form onsubmit="event.preventDefault(); searchSongs();">
           <input
             type="text"
             id="searchInput"
             placeholder="Enter a vibe to find matching songs..."
               aria-label="Search for songs based on a mood or vibe"
           />
-          <button onclick="searchSongs()">Search</button>
+            <button type="submit">Search</button>
+          </form>
         </div>
       </div>
       <div id="spinner" class="spinner hidden"></div>
