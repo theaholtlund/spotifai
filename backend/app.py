@@ -17,7 +17,7 @@ def error_response(message, status_code):
     logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
 
-def find_tracks_on_spotify(song_list):
+def find_spotify_tracks(song_list):
     """Search for tracks on Spotify based on list of song names, return tracks and tracks not found."""
     tracks_found = []
     tracks_not_found = []
@@ -53,7 +53,7 @@ def search_songs_with_gemini_suggestions():
             return error_response("No song suggestions found", 404)
 
         # Search for tracks on Spotify based on Gemini suggestions
-        tracks_found, tracks_not_found = find_tracks_on_spotify(gemini_songs)
+        tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
 
         logging.info(f"Tracks found: {len(tracks_found)}, Tracks not found: {len(tracks_not_found)}")
 
