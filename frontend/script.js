@@ -29,6 +29,7 @@ function searchSongs() {
     body: JSON.stringify({ query }),
   })
     .then((response) => {
+      // Check if the API response is successful
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -41,6 +42,7 @@ function searchSongs() {
     })
     .catch((error) => {
       console.error("Error:", error);
+      // Display error message in the results container if fetching fails
       document.getElementById(
         "results"
       ).innerHTML = `<p class="error">Failed to fetch results.</p>`;
@@ -52,6 +54,7 @@ function displayResults(tracks) {
   const resultsContainer = document.getElementById("results");
   resultsContainer.innerHTML = "";
 
+  // If no tracks are found, display appropriate message
   if (!Array.isArray(tracks) || tracks.length === 0) {
     resultsContainer.innerHTML = `<p class="no-results">No results found.</p>`;
     return;
