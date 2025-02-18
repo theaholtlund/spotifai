@@ -38,5 +38,5 @@ def search_tracks(query):
         return tracks
 
     except Exception as e:
-        logging.error(f"Error searching Spotify: {e}", exc_info=True)
+        logging.error(f"Spotify search error: {e}", exc_info=True)
         return []
