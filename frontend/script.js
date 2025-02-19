@@ -64,6 +64,7 @@ function displayResults(tracks) {
     const trackElement = document.createElement("div");
     trackElement.className = "track";
 
+    // Construct track card with image, name, artist and Spotify link
     trackElement.innerHTML = `
       <div class="track-card">
         <img src="${track.album?.images[0]?.url || ""}" alt="${
@@ -88,6 +89,7 @@ function displayResults(tracks) {
 function displayNotFound(notFound) {
   const notFoundContainer = document.getElementById("not-found");
 
+  // Ensure section is hidden when empty
   if (!Array.isArray(notFound) || notFound.length === 0) {
     notFoundContainer.classList.add("hidden");
     notFoundContainer.style.display = "none";
