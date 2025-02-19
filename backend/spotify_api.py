@@ -31,11 +31,10 @@ def search_tracks(query):
             return []
 
         title, artist = parts
-        sanitised_query = f"track:{title.strip()} artist:{artist.strip()}"
+        search_query = f"track:{title.strip()} artist:{artist.strip()}"
 
-        results = sp.search(q=sanitised_query, type='track', limit=1)
-        tracks = results.get('tracks', {}).get('items', [])
-        return tracks
+        results = sp.search(q=search_query, type='track', limit=1)
+        return results.get('tracks', {}).get('items', [])
 
     except Exception as e:
         logging.error(f"Spotify search error: {e}", exc_info=True)
