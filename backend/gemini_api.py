@@ -19,7 +19,11 @@ genai.configure(api_key=GEMINI_API_KEY)
 logging.info("Gemini API successfully configured.")
 
 def get_songs_from_gemini(keyword):
-    """Fetch song suggestions from the Gemini API based on search keyword."""
+    if not keyword:
+        logging.warning("No keyword provided for Gemini API search.")
+        return []
+
+    """Fetch song suggestions from Gemini API based on a search keyword."""
     try:
         model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(f"Give me the title of 5 common songs that exist on Spotify in the format **Song** - Artist related to the word: {keyword}, with no other text than this")
