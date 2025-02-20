@@ -24,7 +24,7 @@ This project (tentatively) uses Google Gemini API to suggest songs based on a th
 
 ## 📝 Run the Project
 
-1. Activate the venv (Mac/Linux);
+1. Activate the venv (Mac/Linux):
 
 ```bash
 source venv/bin/activate
@@ -37,3 +37,7 @@ python backend/app.py
 ```
 
 3. Open frontend/index.html in your browser.
+
+```bash
+open -a "Google Chrome" frontend/index.html
+```
