@@ -24,7 +24,7 @@ header {
 .header-graphic {
   width: 80%;
   max-width: 900px;
-  height: 100px;
+  height: auto;
 }
 
 /* Styling for search container */
