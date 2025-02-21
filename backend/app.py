@@ -26,10 +26,14 @@ def find_spotify_tracks(song_list):
     tracks_not_found = []
 
     for song in song_list:
-        spotify_results = search_tracks(song)
-        if spotify_results:
-            tracks_found.extend(spotify_results)
-        else:
+        try:
+            spotify_results = search_tracks(song)
+            if spotify_results:
+                tracks_found.extend(spotify_results)
+            else:
+                tracks_not_found.append(song)
+        except Exception as e:
+            logging.error(f"Error searching for track '{song}' on Spotify: {str(e)}")
             tracks_not_found.append(song)
 
     return tracks_found, tracks_not_found
