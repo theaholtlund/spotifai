@@ -36,7 +36,7 @@ source venv/bin/activate
 python backend/app.py
 ```
 
-3. Open frontend/index.html in your browser.
+3. Open the frontend in Google Chrome (Mac/Linux);
 
 ```bash
 open -a "Google Chrome" frontend/index.html
