@@ -4,6 +4,7 @@ from flask_cors import CORS
 from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
+import traceback
 
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -55,7 +56,11 @@ def search_songs_with_gemini_suggestions():
             return error_response("Query cannot be empty", 400)
 
         # Fetch song suggestions from Gemini
-        gemini_songs = get_songs_from_gemini(query)
+        try:
+            gemini_songs = get_songs_from_gemini(query)
+        except Exception as e:
+            logging.error(f"Error fetching songs from Gemini: {str(e)}\n{traceback.format_exc()}")
+
         if not gemini_songs:
             return error_response("No song suggestions found", 404)
 
