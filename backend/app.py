@@ -60,6 +60,7 @@ def search_songs_with_gemini_suggestions():
             gemini_songs = get_songs_from_gemini(query)
         except Exception as e:
             logging.error(f"Error fetching songs from Gemini: {str(e)}\n{traceback.format_exc()}")
+            return error_response("Failed to fetch songs from Gemini", 500)
 
         if not gemini_songs:
             return error_response("No song suggestions found", 404)
