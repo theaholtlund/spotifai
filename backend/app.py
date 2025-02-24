@@ -63,6 +63,7 @@ def search_songs_with_gemini_suggestions():
             return error_response("Failed to fetch songs from Gemini", 500)
 
         if not gemini_songs:
+            logging.info("No song suggestions found")
             return error_response("No song suggestions found", 404)
 
         # Search for tracks on Spotify based on Gemini suggestions
