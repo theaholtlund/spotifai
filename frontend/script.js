@@ -14,11 +14,6 @@ function searchSongs() {
 
   const query = searchInput.value.trim();
 
-  if (!query) {
-    alert("Please enter a search term.");
-    return;
-  }
-
   toggleSpinner(true);
 
   fetch("http://localhost:5000/search", {
