@@ -32,8 +32,8 @@ function searchSongs() {
     })
     .then((data) => {
       console.log("API Response:", data);
-      displayResults(data.tracks || []);
-      displayNotFound(data.not_found || []);
+      displayResults(data.tracks_found || []);
+      displayNotFound(data.tracks_not_found || []);
     })
     .catch((error) => {
       console.error("Error:", error);
