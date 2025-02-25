@@ -30,12 +30,12 @@ def get_songs_from_gemini(keyword):
 
         # Parse and clean response
         songs = response.text.strip().split('\n')
+        cleaned_songs = [song.strip() for song in songs if '-' in song]
 
-        cleaned_songs = [
-            f"{song.split('**')[1].strip()} by {song.split('-')[1].strip()}"
-            for song in songs if '**' in song and '-' in song
-        ]
-        logging.info(f"Song suggestions from Gemini: {cleaned_songs}")
+        if not cleaned_songs:
+            logging.warning(f"No songs found for keyword: {keyword}")
+
+        logging.info(f"Gemini Suggestions: {cleaned_songs}")
         return cleaned_songs
     except Exception as e:
         logging.error(f"Gemini API error: {e}", exc_info=True)
