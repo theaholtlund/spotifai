@@ -1,13 +1,13 @@
 # Import required libraries
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
 import traceback
-
-# Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+import time
+from cachetools import TTLCache
+from functools import wraps
 
 # Initialise Flask app
 app = Flask(__name__)
