@@ -6,8 +6,8 @@ from gemini_api import get_songs_from_gemini
 import logging
 import traceback
 import time
-from cachetools import TTLCache
-from functools import wraps
+from cachetools import TTLCache # For caching
+from functools import wraps # For rate limiting
 
 # Initialise Flask app
 app = Flask(__name__)
