@@ -180,6 +180,7 @@ footer {
   color: red;
   text-align: center;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 /* Styling for loading spinner */
