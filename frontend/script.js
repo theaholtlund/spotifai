@@ -72,7 +72,9 @@ function displayResults(tracks) {
             .join(", ")}</p>
           <a href="${
             track.external_urls?.spotify || "#"
-          }" target="_blank" class="spotify-link">Listen on Spotify</a>
+          }" target="_blank" class="spotify-link" aria-label="Listen to ${
+      track.name
+    } on Spotify">Listen on Spotify</a>
         </div>
       </div>
     `;
