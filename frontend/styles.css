@@ -214,3 +214,11 @@ footer {
     opacity: 1;
   }
 }
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .search-background {
+    padding: 20px;
+    background-size: 45% auto, 45% auto, 45% auto;
+  }
+}
