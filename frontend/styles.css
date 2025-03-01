@@ -221,4 +221,10 @@ footer {
     padding: 20px;
     background-size: 45% auto, 45% auto, 45% auto;
   }
+
+  .track-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
