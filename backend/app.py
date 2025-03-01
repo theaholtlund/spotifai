@@ -13,6 +13,9 @@ from functools import wraps # For rate limiting
 app = Flask(__name__)
 CORS(app)
 
+# Setup logging configuration
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
 def error_response(message, status_code):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
