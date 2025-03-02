@@ -7,6 +7,9 @@ function displayErrorMessage(message) {
   const errorMessageContainer = document.getElementById("error-message");
   errorMessageContainer.textContent = message;
   errorMessageContainer.style.display = "block";
+  setTimeout(() => {
+    errorMessageContainer.style.display = "none";
+  }, 5000);
 }
 
 function searchSongs() {
