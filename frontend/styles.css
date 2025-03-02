@@ -227,4 +227,9 @@ footer {
     align-items: center;
     text-align: center;
   }
+
+  .track-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
