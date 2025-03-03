@@ -16,6 +16,10 @@ CORS(app)
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+# Caching setup
+gemini_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
+spotify_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
+
 def error_response(message, status_code):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
