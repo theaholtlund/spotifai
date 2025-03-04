@@ -4,7 +4,6 @@ from flask_cors import CORS
 from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
-import traceback
 import time
 from cachetools import TTLCache # For caching
 from functools import wraps # For rate limiting
