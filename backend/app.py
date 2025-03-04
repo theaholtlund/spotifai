@@ -23,6 +23,15 @@ spotify_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
 RATE_LIMIT = 5  # Requests per minute
 request_times = []
 
+def rate_limit(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        now = time.time()
+        request_times[:] = [t for t in request_times if t > now - 60]
+        request_times.append(now)
+        return func(*args, **kwargs)
+    return wrapper
+
 def error_response(message, status_code):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
