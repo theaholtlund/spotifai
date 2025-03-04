@@ -20,6 +20,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 gemini_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
 spotify_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
 
+# Rate limiting setup
+RATE_LIMIT = 5  # Requests per minute
+request_times = []
+
 def error_response(message, status_code):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
