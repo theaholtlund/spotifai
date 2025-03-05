@@ -24,6 +24,7 @@ RATE_LIMIT = 5  # Requests per minute
 request_times = []
 
 def rate_limit(func):
+    """Decorator to limit the number of API requests per minute."""
     @wraps(func)
     def wrapper(*args, **kwargs):
         now = time.time()
