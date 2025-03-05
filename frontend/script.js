@@ -9,7 +9,7 @@ function displayErrorMessage(message) {
   errorMessageContainer.style.display = "block";
   setTimeout(() => {
     errorMessageContainer.style.display = "none";
-  }, 5000);
+  }, 5000); // Clear message after 5 seconds
 }
 
 function searchSongs() {
