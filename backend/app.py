@@ -55,10 +55,10 @@ def find_spotify_tracks(song_list):
         except Exception as e:
             logging.error(f"Error searching for track '{song}' on Spotify: {str(e)}")
             tracks_not_found.append(song)
-
     return tracks_found, tracks_not_found
 
 @app.route('/search', methods=['POST'])
+@rate_limit
 def search_songs_with_gemini_suggestions():
     """Endpoint to search for songs and fetch Gemini suggestions."""
     try:
