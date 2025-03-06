@@ -29,6 +29,8 @@ def rate_limit(func):
     def wrapper(*args, **kwargs):
         now = time.time()
         request_times[:] = [t for t in request_times if t > now - 60]
+        if len(request_times) >= RATE_LIMIT:
+            return jsonify({"Error": "Too many requests, please try again later."}), 429
         request_times.append(now)
         return func(*args, **kwargs)
     return wrapper
