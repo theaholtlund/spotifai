@@ -14,6 +14,8 @@ function displayErrorMessage(message) {
 
 function searchSongs() {
   const searchInput = document.getElementById("searchInput");
+  const resultsContainer = document.getElementById("results");
+  const notFoundContainer = document.getElementById("not-found");
 
   // Ensure search input field exists before proceeding to prevent errors if the element is missing
   if (!searchInput) {
