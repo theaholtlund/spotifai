@@ -96,5 +96,8 @@ def search_songs_with_gemini_suggestions():
         logging.exception(f"Unexpected server error: {e}")
         return error_response(f"Internal server error: {str(e)}", 500)
 
+def health_check():
+    return make_response(jsonify({'status': 'ok'}), 200)
+
 if __name__ == '__main__':
     app.run(debug=True)
