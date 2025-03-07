@@ -17,7 +17,10 @@ function searchSongs() {
   const resultsContainer = document.getElementById("results");
   const notFoundContainer = document.getElementById("not-found");
 
-  // Ensure search input field exists before proceeding to prevent errors if the element is missing
+  resultsContainer.innerHTML = "";
+  notFoundContainer.style.display = "none";
+  document.getElementById("error-message").style.display = "none";
+
   if (!searchInput) {
     console.error("Search input field not found!");
     return;
