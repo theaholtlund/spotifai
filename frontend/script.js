@@ -29,7 +29,7 @@ function searchSongs() {
   const query = searchInput.value.trim();
 
   if (!query) {
-    displayErrorMessage("Error.");
+    displayErrorMessage("Please enter a search query.");
     return;
   }
 
