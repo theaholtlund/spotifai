@@ -44,7 +44,6 @@ def find_spotify_tracks(song_list):
     """Search for tracks on Spotify based on a list of song names, return tracks found and tracks not found."""
     tracks_found = []
     tracks_not_found = []
-
     for song in song_list:
         try:
             spotify_results = search_tracks(song)
@@ -74,8 +73,9 @@ def search_songs_with_gemini_suggestions():
         if not query:
             return error_response("Query cannot be empty", 400)
 
-        # Fetch song suggestions from Gemini
-        try:
+        if query in gemini_cache:
+            gemini_songs = gemini_cache[query]
+        else:
             gemini_songs = get_songs_from_gemini(query)
         except Exception as e:
             logging.error(f"Error fetching songs from Gemini: {str(e)}\n{traceback.format_exc()}")
