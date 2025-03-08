@@ -28,6 +28,11 @@ function searchSongs() {
 
   const query = searchInput.value.trim();
 
+  if (!query) {
+    displayErrorMessage("Error.");
+    return;
+  }
+
   toggleSpinner(true);
 
   fetch("http://localhost:5000/search", {
