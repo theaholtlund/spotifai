@@ -60,6 +60,7 @@ function searchSongs() {
       document.getElementById(
         "results"
       ).innerHTML = `<p class="error">Failed to fetch results.</p>`;
+      displayErrorMessage("Failed to fetch results. Please try again later.");
     })
     .finally(() => toggleSpinner(false));
 }
