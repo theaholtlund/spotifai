@@ -23,7 +23,7 @@ except Exception as e:
     logging.critical("Failed to authenticate Spotify API", exc_info=True)
     raise e
 
-def search_tracks(query):
+def search_tracks(song_name, delay=1):
     """Search for tracks on Spotify based on a query input of title and artist."""
     try:
         parts = query.split(' - ')
