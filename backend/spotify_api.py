@@ -34,6 +34,7 @@ def search_tracks(song_name, retries=3, delay=1):
         title, artist = parts
         search_query = f"track:{title.strip()} artist:{artist.strip()}"
 
+        logging.info(f"Searching for track: {song_name}")
         results = sp.search(q=search_query, type='track', limit=1)
         return results.get('tracks', {}).get('items', [])
 
