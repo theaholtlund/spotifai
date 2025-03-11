@@ -28,7 +28,7 @@ def search_tracks(song_name, retries=3, delay=1):
     try:
         parts = song_name.split(' - ')
         if len(parts) != 2:
-            logging.warning(f"Invalid query format: {query}")
+            logging.warning(f"Invalid query format: {song_name}")
             return []
 
         title, artist = parts
