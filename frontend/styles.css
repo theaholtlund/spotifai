@@ -1,3 +1,11 @@
+/* Define CSS variables for consistency */
+:root {
+  --primary-color: #1db954;
+  --secondary-color: #17a74a;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+}
+
 /* Global body styling */
 body {
   font-family: Arial, sans-serif;
