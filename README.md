@@ -8,7 +8,7 @@ This project (tentatively) uses Google Gemini API to suggest songs based on a th
 
 1. Clone this repository.
 2. Create a virtual environment: `python -m venv venv`.
-3. Install dependencies: `pip install -r backend/requirements.txt`.
+3. Install dependencies: `pip install -r requirements.txt`.
 4. Add API keys to `.env`.
 
 ## 🔑 API Keys Required
