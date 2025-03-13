@@ -10,7 +10,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
 }
@@ -19,7 +19,7 @@ body {
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #1db954;
+  color: var(--primary-color);
 }
 
 /* Styling for header */
