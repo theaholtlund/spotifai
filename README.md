@@ -24,7 +24,7 @@ This project (tentatively) uses Google Gemini API to suggest songs based on a th
 
 ## 📝 Run the Project
 
-1. Activate the venv (Mac/Linux):
+1. Activate the venv (macOS and Linux):
 
 ```bash
 source venv/bin/activate
