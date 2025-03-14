@@ -20,8 +20,9 @@ logging.info("Gemini API successfully configured.")
 
 def get_songs_from_gemini(keyword, max_songs=5):
     """Fetch song suggestions from Gemini API based on a search keyword."""
-    if not keyword:
-        logging.warning("No keyword provided for Gemini API search.")
+    # Add input validation
+    if not keyword or not isinstance(keyword, str):
+        logging.warning("Invalid keyword provided for Gemini API search.")
         return []
 
     try:
