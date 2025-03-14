@@ -84,7 +84,7 @@ button {
 
 /* Styling for buttons on hover */
 button:hover {
-  background-color: #17a74a;
+  background-color: var(--secondary-color);
 }
 
 /* Styling for results container */
