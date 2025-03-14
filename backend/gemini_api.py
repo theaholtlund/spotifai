@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Define values for model and API key
-MODEL_NAME = 'gemini-1.5-pro'
+MODEL_NAME = 'gemini-2.0-flash'
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Configure Gemini API client
