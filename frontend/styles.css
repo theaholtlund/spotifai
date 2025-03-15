@@ -36,13 +36,6 @@ header {
   height: auto;
 }
 
-/* Styling for header graphic */
-.header-graphic {
-  width: 80%;
-  max-width: 900px;
-  height: auto;
-}
-
 /* Styling for search container */
 .search-container {
   display: flex;
@@ -181,13 +174,6 @@ button:hover {
 footer {
   margin-top: 50px;
   padding: 20px 0;
-}
-
-/* Styling for footer graphic */
-.footer-graphic {
-  width: 80%;
-  max-width: 900px;
-  height: auto;
 }
 
 /* Styling for errors and error messages */
