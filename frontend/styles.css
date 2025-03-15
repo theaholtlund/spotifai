@@ -28,6 +28,14 @@ header {
   padding: 20px 0;
 }
 
+/* Ensure responsive design */
+.header-graphic,
+.footer-graphic {
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+}
+
 /* Styling for header graphic */
 .header-graphic {
   width: 80%;
