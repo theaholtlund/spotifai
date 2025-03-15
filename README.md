@@ -30,13 +30,13 @@ This project (tentatively) uses Google Gemini API to suggest songs based on a th
 source venv/bin/activate
 ```
 
-2. Run the backend:
+2. Run the backend in the terminal:
 
 ```bash
 python backend/app.py
 ```
 
-3. Open the frontend in Google Chrome (Mac/Linux);
+3. In a different terminal, open the frontend in Google Chrome (macOS);
 
 ```bash
 open -a "Google Chrome" frontend/index.html
