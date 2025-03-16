@@ -37,7 +37,7 @@ function searchSongs() {
 
   toggleSpinner(true);
 
-  fetch("http://localhost:5000/search", {
+  fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
