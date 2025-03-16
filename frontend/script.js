@@ -1,3 +1,5 @@
+const API_URL = "http://localhost:5000/search";
+
 function toggleSpinner(show) {
   // Toggle the visibility of loading spinner based on parameter
   document.getElementById("spinner").classList.toggle("hidden", !show);
