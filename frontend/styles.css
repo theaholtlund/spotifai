@@ -76,7 +76,7 @@ button {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #1db954;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 5px;
