@@ -124,7 +124,7 @@ button:hover {
   display: inline-block;
   margin-top: 5px;
   text-decoration: none;
-  color: #1db954;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
