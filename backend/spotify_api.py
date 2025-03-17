@@ -39,7 +39,7 @@ def search_tracks(song_name, retries=3, delay=1):
         return results.get('tracks', {}).get('items', [])
 
     except spotipy.exceptions.SpotifyException as e:
-        if retries > 0:
+        if retries > 0 and 'rate limit exceeded' in str(e).lower():
             return search_tracks(song_name, retries - 1, delay * 2)
         else:
             return []
