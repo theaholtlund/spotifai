@@ -50,6 +50,7 @@ def find_spotify_tracks(song_list):
                 spotify_results = spotify_cache[song]
             else:
                 spotify_results = search_tracks(song)
+                spotify_cache[song] = spotify_results
             if spotify_results:
                 tracks_found.extend(spotify_results)
             else:
