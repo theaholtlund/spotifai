@@ -46,7 +46,10 @@ def find_spotify_tracks(song_list):
     tracks_not_found = []
     for song in song_list:
         try:
-            spotify_results = search_tracks(song)
+            if song in spotify_cache:
+                spotify_results = spotify_cache[song]
+            else:
+                spotify_results = search_tracks(song)
             if spotify_results:
                 tracks_found.extend(spotify_results)
             else:
