@@ -192,7 +192,11 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1db954, #17a74a);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   animation: pulse 1.2s infinite ease-in-out;
 }
 
