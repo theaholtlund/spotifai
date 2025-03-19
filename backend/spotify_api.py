@@ -44,5 +44,5 @@ def search_tracks(song_name, retries=3, delay=1):
         else:
             return []
     except Exception as e:
-        logging.error(f"Spotify search error: {e}", exc_info=True)
+        logging.error(f"Error searching for track: {song_name}, {e}", exc_info=True)
         return []
