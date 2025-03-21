@@ -28,7 +28,12 @@ def get_songs_from_gemini(keyword, max_songs=5):
     try:
         model = genai.GenerativeModel(MODEL_NAME)
         prompt = f"Give me the title of {max_songs} common songs that exist on Spotify in the format Song - Artist related to the word: {keyword}, with no other text than this"
-        response = model.generate_content(prompt)
+        
+        # Improve error handling
+        try:
+            response = model.generate_content(prompt)
+        except Exception as e:
+            return []
 
         # Parse and clean response
         songs = response.text.strip().split('\n')
