@@ -33,6 +33,7 @@ def get_songs_from_gemini(keyword, max_songs=5):
         try:
             response = model.generate_content(prompt)
         except Exception as e:
+            logging.error(f"Gemini API error: {e}", exc_info=True)
             return []
 
         # Parse and clean response
