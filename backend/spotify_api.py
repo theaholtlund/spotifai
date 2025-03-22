@@ -23,10 +23,14 @@ except Exception as e:
     logging.critical("Failed to authenticate Spotify API", exc_info=True)
     raise e
 
-def search_tracks(song_name, retries=3, delay=1):
+
+def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
     """Search for tracks on Spotify based on a query input of title and artist."""
     try:
+        # Split the song_name to separate title and artist
         parts = song_name.split(' - ')
+
+        # Check if the song_name format is valid (must contain exactly one ' - ')
         if len(parts) != 2:
             logging.warning(f"Invalid query format: {song_name}")
             return []
@@ -39,6 +43,7 @@ def search_tracks(song_name, retries=3, delay=1):
         return results.get('tracks', {}).get('items', [])
 
     except spotipy.exceptions.SpotifyException as e:
+        # Handle rate limit exceptions and retry if necessary
         if retries > 0 and 'rate limit exceeded' in str(e).lower():
             return search_tracks(song_name, retries - 1, delay * 2)
         else:
