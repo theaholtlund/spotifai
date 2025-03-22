@@ -5,19 +5,20 @@ from spotify_api import search_tracks
 from gemini_api import get_songs_from_gemini
 import logging
 import time
-from cachetools import TTLCache # For caching
-from functools import wraps # For rate limiting
+from cachetools import TTLCache  # For caching
+from functools import wraps  # For rate limiting
 
 # Initialise Flask app
 app = Flask(__name__)
 CORS(app)
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Caching setup
-gemini_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
-spotify_cache = TTLCache(maxsize=100, ttl=300) # 5 minutes cache
+gemini_cache = TTLCache(maxsize=100, ttl=300)  # 5 minutes cache
+spotify_cache = TTLCache(maxsize=100, ttl=300)  # 5 minutes cache
 
 # Rate limiting setup
 RATE_LIMIT = 5  # Requests per minute
