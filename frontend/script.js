@@ -1,5 +1,6 @@
 const API_URL = "http://localhost:5000/search";
 
+// Toggle the visibility of loading spinner based on parameter
 function toggleSpinner(show) {
   // Toggle the visibility of loading spinner based on parameter
   document.getElementById("spinner").classList.toggle("hidden", !show);
@@ -15,6 +16,7 @@ function displayErrorMessage(message) {
 }
 
 function searchSongs() {
+  // Search for songs based on user input
   const searchInput = document.getElementById("searchInput");
   const resultsContainer = document.getElementById("results");
   const notFoundContainer = document.getElementById("not-found");
@@ -63,6 +65,7 @@ function searchSongs() {
     .finally(() => toggleSpinner(false));
 }
 
+// Display the search results in the UI
 function displayResults(tracks) {
   const resultsContainer = document.getElementById("results");
   resultsContainer.innerHTML = "";
