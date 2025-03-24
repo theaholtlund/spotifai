@@ -22,6 +22,13 @@ h1 {
   color: var(--primary-color);
 }
 
+/* Styling for secondary header */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--secondary-color);
+}
+
 /* Styling for header */
 header {
   width: 100%;
