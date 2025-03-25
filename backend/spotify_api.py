@@ -57,5 +57,12 @@ def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict
 def search_public_playlists_by_name(names):
 
     for name in names:
-        results = sp.search(q=name, type='playlist', limit=1)
-    return results
+        try:
+            logging.info(f"Searching for playlist: {name}")
+            results = sp.search(q=name, type='playlist', limit=1)
+            return results
+
+        except Exception as e:
+            logging.error(
+                f"Error searching for playlist: {name}, {e}", exc_info=True)
+            return []
