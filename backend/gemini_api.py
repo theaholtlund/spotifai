@@ -48,3 +48,10 @@ def get_songs_from_gemini(keyword, max_songs=5):
     except Exception as e:
         logging.error(f"Error processing Gemini API response: {e}", exc_info=True)
         return []
+
+
+def suggest_playlist_names(vibe):
+    model = genai.GenerativeModel(MODEL_NAME)
+    prompt = f"Generate 5 creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
+    response = model.generate_content(prompt)
+    return response
