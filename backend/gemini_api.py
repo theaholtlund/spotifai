@@ -2,6 +2,7 @@
 import os
 import google.generativeai as genai
 import logging
+from typing import List
 
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -52,7 +53,7 @@ def get_songs_from_gemini(keyword, max_songs=5):
         return []
 
 
-def suggest_playlist_names(vibe):
+def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"Generate 5 creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
     response = model.generate_content(prompt)
