@@ -18,6 +18,7 @@ if not GEMINI_API_KEY:
 genai.configure(api_key=GEMINI_API_KEY)
 logging.info("Gemini API successfully configured.")
 
+
 def get_songs_from_gemini(keyword, max_songs=5):
     """Fetch song suggestions from Gemini API based on a search keyword."""
     # Add input validation
@@ -28,7 +29,7 @@ def get_songs_from_gemini(keyword, max_songs=5):
     try:
         model = genai.GenerativeModel(MODEL_NAME)
         prompt = f"Give me the title of {max_songs} common songs that exist on Spotify in the format Song - Artist related to the word: {keyword}, with no other text than this"
-        
+
         # Improve error handling
         try:
             response = model.generate_content(prompt)
@@ -46,7 +47,8 @@ def get_songs_from_gemini(keyword, max_songs=5):
         logging.info(f"Gemini Suggestions: {cleaned_songs}")
         return cleaned_songs
     except Exception as e:
-        logging.error(f"Error processing Gemini API response: {e}", exc_info=True)
+        logging.error(
+            f"Error processing Gemini API response: {e}", exc_info=True)
         return []
 
 
