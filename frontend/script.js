@@ -1,3 +1,4 @@
+// Define API URL
 const API_URL = "http://localhost:5000/search";
 
 // Toggle the visibility of loading spinner based on parameter
@@ -6,6 +7,7 @@ function toggleSpinner(show) {
   document.getElementById("spinner").classList.toggle("hidden", !show);
 }
 
+// Display error message in the UI
 function displayErrorMessage(message) {
   const errorMessageContainer = document.getElementById("error-message");
   errorMessageContainer.textContent = message;
@@ -104,6 +106,7 @@ function displayResults(tracks) {
   });
 }
 
+// Display songs that were not found
 function displayNotFound(notFound) {
   const notFoundContainer = document.getElementById("not-found");
 
