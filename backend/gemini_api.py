@@ -55,6 +55,6 @@ def get_songs_from_gemini(keyword, max_songs=5):
 
 def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     model = genai.GenerativeModel(MODEL_NAME)
-    prompt = f"Generate 5 creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
+    prompt = f"Generate {max_names} creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
     response = model.generate_content(prompt)
     return response
