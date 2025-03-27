@@ -19,7 +19,7 @@ body {
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: var(--primary-color);
+  color: white;
 }
 
 /* Styling for secondary header */
