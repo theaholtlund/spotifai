@@ -57,4 +57,5 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     model = genai.GenerativeModel(MODEL_NAME)
     prompt = f"Generate {max_names} creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
     response = model.generate_content(prompt)
-    return response
+    playlists = response.text.strip().split('\n')
+    return playlists
