@@ -24,6 +24,7 @@ spotify_cache = TTLCache(maxsize=100, ttl=300)  # 5 minutes cache
 RATE_LIMIT = 5  # Requests per minute
 request_times = []
 
+
 def rate_limit(func):
     """Decorator to limit the number of API requests per minute."""
     @wraps(func)
@@ -36,10 +37,12 @@ def rate_limit(func):
         return func(*args, **kwargs)
     return wrapper
 
+
 def error_response(message, status_code):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
+
 
 def find_spotify_tracks(song_list):
     """Search for tracks on Spotify based on a list of song names, return tracks found and tracks not found."""
@@ -60,6 +63,7 @@ def find_spotify_tracks(song_list):
             logging.error(f"Error searching for track '{song}' on Spotify: {str(e)}")
             tracks_not_found.append(song)
     return tracks_found, tracks_not_found
+
 
 @app.route('/search', methods=['POST'])
 @rate_limit
@@ -99,6 +103,7 @@ def search_songs_with_gemini_suggestions():
     except Exception as e:
         logging.exception(f"Unexpected server error: {e}")
         return error_response(f"Internal server error: {str(e)}", 500)
+
 
 @app.route('/health', methods=['GET'])
 def health_check():
