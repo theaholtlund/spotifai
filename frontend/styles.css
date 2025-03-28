@@ -182,6 +182,7 @@ button:hover {
 footer {
   margin-top: 50px;
   padding: 20px 0;
+  background-color: var(--primary-color);
 }
 
 /* Styling for errors and error messages */
