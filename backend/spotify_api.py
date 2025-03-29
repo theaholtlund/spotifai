@@ -45,6 +45,10 @@ def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict
     except spotipy.exceptions.SpotifyException as e:
         # Handle rate limit exceptions and retry if necessary
         if retries > 0 and 'rate limit exceeded' in str(e).lower():
+            logging.warning(
+                f"Spotify rate limit exceeded, retrying in {delay} seconds...")
+            time.sleep(delay)  # Wait before retrying
+            # Retry with increased delay
             return search_tracks(song_name, retries - 1, delay * 2)
         else:
             logging.error(f"Spotify API error: {e}", exc_info=True)
