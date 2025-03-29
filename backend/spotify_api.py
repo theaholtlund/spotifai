@@ -65,7 +65,15 @@ def search_public_playlists_by_name(names):
         try:
             logging.info(f"Searching for playlist: {name}")
             results = sp.search(q=name, type='playlist', limit=1)
-            return results
+
+            if results and 'playlists' in results and 'items' in results['playlists']:
+                items = results['playlists']['items']
+                if items and items != [None]:
+                    playlist = items[0]
+                    playlists.append({
+                        "name": playlist['name'],
+                        "external_urls": playlist['external_urls']
+                    })
 
         except Exception as e:
             logging.error(
