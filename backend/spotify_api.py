@@ -61,14 +61,17 @@ def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict
 
 
 def search_public_playlists_by_name(names):
+    playlists = []
 
     for name in names:
         try:
             logging.info(f"Searching for playlist: {name}")
             results = sp.search(q=name, type='playlist', limit=1)
+            logging.info(f"These are the results for {name}: {results}.")
 
             if results and 'playlists' in results and 'items' in results['playlists']:
                 items = results['playlists']['items']
+                logging.info(f"These are the items for {name}: {items}.")
                 if items and items != [None]:
                     playlist = items[0]
                     playlists.append({
