@@ -120,7 +120,6 @@ function displayNotFound(notFound) {
   }
 
   notFoundContainer.style.display = "block";
-
   notFoundContainer.innerHTML = `<p>The following songs were not found on Spotify:</p>`;
 
   const list = document.createElement("ul");

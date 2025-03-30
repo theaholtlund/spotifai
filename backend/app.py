@@ -60,7 +60,8 @@ def find_spotify_tracks(song_list):
             else:
                 tracks_not_found.append(song)
         except Exception as e:
-            logging.error(f"Error searching for track '{song}' on Spotify: {str(e)}")
+            logging.error(
+                f"Error searching for track '{song}' on Spotify: {str(e)}")
             tracks_not_found.append(song)
     return tracks_found, tracks_not_found
 
