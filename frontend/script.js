@@ -9,6 +9,7 @@ function toggleSpinner(show) {
 
 // Display error message in the UI
 function displayErrorMessage(message) {
+  // Display error message in the UI
   const errorMessageContainer = document.getElementById("error-message");
   errorMessageContainer.textContent = message;
   errorMessageContainer.style.display = "block";
@@ -17,6 +18,7 @@ function displayErrorMessage(message) {
   }, 5000); // Clear message after 5 seconds
 }
 
+// Search for songs based on user input
 function searchSongs() {
   // Search for songs based on user input
   const searchInput = document.getElementById("searchInput");
@@ -69,6 +71,7 @@ function searchSongs() {
 
 // Display the search results in the UI
 function displayResults(tracks) {
+  // Display the search results in the UI
   const resultsContainer = document.getElementById("results");
   resultsContainer.innerHTML = "";
 
