@@ -60,6 +60,7 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
         response = model.generate_content(prompt)
 
         playlists = response.text.strip().split('\n')
-        return playlists
+        cleaned_playlists = [name.strip() for name in playlists if name]
+        return cleaned_playlists
     except Exception as e:
         return []
