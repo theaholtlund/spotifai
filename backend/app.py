@@ -1,4 +1,8 @@
 # Import required libraries
+import time
+import logging
+from functools import wraps  # For rate limiting
+from cachetools import TTLCache  # For caching
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 from spotify_api import search_tracks
@@ -13,8 +17,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO,
-                    format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Caching setup
 gemini_cache = TTLCache(maxsize=100, ttl=300)  # 5 minutes cache
