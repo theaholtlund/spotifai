@@ -24,7 +24,7 @@ except Exception as e:
     raise e
 
 
-def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
+def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
     """Search for tracks on Spotify based on a query input of title and artist."""
     try:
         # Split the song_name to separate title and artist
@@ -49,7 +49,7 @@ def search_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict
                 f"Spotify rate limit exceeded, retrying in {delay} seconds...")
             time.sleep(delay)
             # Wait before retrying and retry with increased delay
-            return search_tracks(song_name, retries - 1, delay * 2)
+            return search_spotify_tracks(song_name, retries - 1, delay * 2)
         else:
             logging.error(f"Spotify API error: {e}", exc_info=True)
             return []

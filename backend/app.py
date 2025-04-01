@@ -5,7 +5,7 @@ from functools import wraps  # For rate limiting
 from cachetools import TTLCache  # For caching
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
-from spotify_api import search_tracks, search_public_playlists_by_name
+from spotify_api import search_spotify_tracks, search_public_playlists_by_name
 from gemini_api import get_songs_from_gemini, suggest_playlist_names
 
 # Initialise Flask app
@@ -52,7 +52,7 @@ def find_spotify_tracks(song_list):
             if song in spotify_cache:
                 spotify_results = spotify_cache[song]
             else:
-                spotify_results = search_tracks(song)
+                spotify_results = search_spotify_tracks(song)
                 spotify_cache[song] = spotify_results
             if spotify_results:
                 tracks_found.extend(spotify_results)
