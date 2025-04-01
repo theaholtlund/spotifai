@@ -32,24 +32,33 @@
       </ul>
     </nav>
     <main>
-      <div class="search-container">
-        <div class="search-background">
-          <form onsubmit="event.preventDefault(); searchSongs();" role="search">
-            <input
-              type="search"
-              id="searchInput"
-              placeholder="Enter a vibe to find matching songs..."
-              aria-label="Search for songs based on a mood or vibe"
-              required
-            />
-            <button type="submit">Search</button>
-          </form>
+      <section>
+        <div class="search-container">
+          <div class="search-background">
+            <form
+              onsubmit="event.preventDefault(); searchSongs();"
+              role="search"
+            >
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Enter a vibe to find matching songs..."
+                aria-label="Search for songs based on a mood or vibe"
+                required
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div id="spinner" class="spinner hidden" aria-busy="true"></div>
-      <section id="results" aria-live="polite"></section>
-      <div id="not-found" style="display: none" aria-live="polite"></div>
-      <div id="error-message" style="display: none" aria-live="assertive"></div>
+        <div id="spinner" class="spinner hidden" aria-busy="true"></div>
+        <section id="results" aria-live="polite"></section>
+        <div id="not-found" style="display: none" aria-live="polite"></div>
+        <div
+          id="error-message"
+          style="display: none"
+          aria-live="assertive"
+        ></div>
+      </section>
     </main>
     <footer>
       <img
