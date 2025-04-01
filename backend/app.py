@@ -5,12 +5,8 @@ from functools import wraps  # For rate limiting
 from cachetools import TTLCache  # For caching
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
-from spotify_api import search_tracks
-from gemini_api import get_songs_from_gemini
-import logging
-import time
-from cachetools import TTLCache  # For caching
-from functools import wraps  # For rate limiting
+from spotify_api import search_tracks, search_public_playlists_by_name
+from gemini_api import get_songs_from_gemini, suggest_playlist_names
 
 # Initialise Flask app
 app = Flask(__name__)
