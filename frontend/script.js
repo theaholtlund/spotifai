@@ -111,6 +111,7 @@ function displayResults(tracks) {
 
 // Display songs that were not found
 function displayNotFound(notFound) {
+  // Display songs that were not found
   const notFoundContainer = document.getElementById("not-found");
 
   // Ensure section is hidden when empty

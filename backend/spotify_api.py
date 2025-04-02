@@ -20,6 +20,7 @@ try:
     ))
     logging.info("Spotify client successfully authenticated.")
 except Exception as e:
+    # Log the error if authentication fails
     logging.critical("Failed to authenticate Spotify API", exc_info=True)
     raise e
 
