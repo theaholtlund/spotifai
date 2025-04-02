@@ -131,3 +131,27 @@ function displayNotFound(notFound) {
 
   notFoundContainer.appendChild(list);
 }
+
+document
+  .getElementById("suggestPlaylistButton")
+  .addEventListener("click", function () {
+    const vibe = document.getElementById("vibeInput").value.trim();
+
+    fetch(
+      `http://localhost:5000/suggest_playlists?vibe=${encodeURIComponent(vibe)}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const suggestionsContainer = document.getElementById(
+          "playlistSuggestions"
+        );
+        if (data.playlists && data.playlists.length > 0) {
+          data.playlists.forEach((playlist) => {
+            const playlistElement = document.createElement("div");
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching playlist suggestions:", error);
+      });
+  });
