@@ -137,6 +137,10 @@ document
   .getElementById("suggestPlaylistButton")
   .addEventListener("click", function () {
     const vibe = document.getElementById("vibeInput").value.trim();
+    if (!vibe) {
+      displayErrorMessage("Please enter a vibe.");
+      return;
+    }
 
     fetch(
       `http://localhost:5000/suggest_playlists?vibe=${encodeURIComponent(vibe)}`
