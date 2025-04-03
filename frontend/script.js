@@ -150,6 +150,7 @@ document
         const suggestionsContainer = document.getElementById(
           "playlistSuggestions"
         );
+        suggestionsContainer.innerHTML = ""; // Clear previous suggestions
         if (data.playlists && data.playlists.length > 0) {
           data.playlists.forEach((playlist) => {
             const playlistElement = document.createElement("div");
