@@ -67,12 +67,15 @@ def search_public_playlists_by_name(names):
     for name in names:
         try:
             logging.info(f"Searching for playlist: {name}")
+            # Perform the search query on Spotify for each playlist name
             results = sp.search(q=name, type='playlist', limit=1)
             logging.info(f"These are the results for {name}: {results}.")
 
             if results and 'playlists' in results and 'items' in results['playlists']:
                 items = results['playlists']['items']
                 logging.info(f"These are the items for {name}: {items}.")
+
+                # If valid playlists are found, append the first one to the list
                 if items and items != [None]:
                     playlist = items[0]
                     playlists.append({

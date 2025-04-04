@@ -133,6 +133,7 @@ function displayNotFound(notFound) {
   notFoundContainer.appendChild(list);
 }
 
+// Event listener for getting playlist suggestions based on user vibe input
 document
   .getElementById("suggestPlaylistButton")
   .addEventListener("click", function () {
