@@ -159,5 +159,6 @@ document
       })
       .catch((error) => {
         console.error("Error fetching playlist suggestions:", error);
+        displayErrorMessage("Failed to fetch playlist suggestions.");
       });
   });
