@@ -60,7 +60,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
         return []
 
 
-def search_public_playlists_by_name(names):
+def search_public_playlists_by_name(names, retries, delay):
     """Search for public Spotify playlists based on a list of names."""
     playlists = []
 
