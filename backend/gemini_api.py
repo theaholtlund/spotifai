@@ -57,6 +57,8 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     """Generate playlist name suggestions using the Gemini API based on a vibe input."""
     # Add input validation
     if not vibe or not isinstance(vibe, str):
+        logging.warning(
+            "Invalid vibe provided for Gemini API playlist name generation.")
         return []
 
     try:
