@@ -253,6 +253,7 @@ footer {
   }
 }
 
+/* Reduce font size for small screens (600px or less) to improve readability */
 @media (max-width: 600px) {
   body {
     font-size: 14px;
