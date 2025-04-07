@@ -96,7 +96,8 @@ def search_songs_with_gemini_suggestions():
         # Search for tracks on Spotify based on Gemini suggestions
         tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
 
-        logging.info(f"Tracks found: {len(tracks_found)}, tracks not found: {len(tracks_not_found)}")
+        logging.info(
+            f"Tracks found: {len(tracks_found)}, tracks not found: {len(tracks_not_found)}")
 
         return jsonify({"tracks_found": tracks_found, "tracks_not_found": tracks_not_found}), 200
 
@@ -108,6 +109,7 @@ def search_songs_with_gemini_suggestions():
 @app.route('/health', methods=['GET'])
 def health_check():
     return make_response(jsonify({'status': 'ok'}), 200)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
