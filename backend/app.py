@@ -108,10 +108,13 @@ def search_songs_with_gemini_suggestions():
 
 @app.route('/suggest_playlists', methods=['GET'])
 def suggest_playlists():
-    vibe = request.args.get('vibe')
-    suggested_names = suggest_playlist_names(vibe, max_names=5)
-    playlists_found = search_public_playlists_by_name(suggested_names)
-    return playlists_found
+    try:
+        vibe = request.args.get('vibe')
+        suggested_names = suggest_playlist_names(vibe, max_names=5)
+        playlists_found = search_public_playlists_by_name(suggested_names)
+        return playlists_found
+    except Exception as e:
+        return error_response(f"Internal server error", 500)
 
 
 @app.route('/health', methods=['GET'])
