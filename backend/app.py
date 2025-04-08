@@ -110,6 +110,9 @@ def search_songs_with_gemini_suggestions():
 def suggest_playlists():
     try:
         vibe = request.args.get('vibe')
+        if not vibe:
+            return error_response("Vibe is required", 400)
+
         suggested_names = suggest_playlist_names(vibe, max_names=5)
         playlists_found = search_public_playlists_by_name(suggested_names)
         return playlists_found
