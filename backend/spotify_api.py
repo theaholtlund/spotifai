@@ -83,6 +83,10 @@ def search_public_playlists_by_name(names, retries, delay):
                         "external_urls": playlist['external_urls']
                     })
 
+            else:
+                logging.warning(
+                    f"Empty or invalid results returned for: {name}")
+
         except Exception as e:
             logging.error(
                 f"Error searching for playlist: {name}, {e}", exc_info=True)
