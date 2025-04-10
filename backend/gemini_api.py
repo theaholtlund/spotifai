@@ -72,6 +72,10 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
 
         playlists = response.text.strip().split('\n')
         cleaned_playlists = [name.strip() for name in playlists if name]
+
+        if not cleaned_playlists:
+            logging.warning(f"No playlist names found for vibe: {vibe}")
+
         return cleaned_playlists
     except Exception as e:
         logging.error(
