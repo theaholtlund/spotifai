@@ -156,6 +156,8 @@ document
           data.playlists.forEach((playlist) => {
             const playlistElement = document.createElement("div");
           });
+        } else {
+          suggestionsContainer.innerHTML = "<p>No playlists found.</p>";
         }
       })
       .catch((error) => {
