@@ -117,7 +117,8 @@ def suggest_playlists():
         playlists_found = search_public_playlists_by_name(suggested_names)
         return playlists_found
     except Exception as e:
-        return error_response(f"Internal server error", 500)
+        logging.exception(f"Unexpected server error: {e}")
+        return error_response(f"Internal server error: {str(e)}", 500)
 
 
 @app.route('/health', methods=['GET'])
