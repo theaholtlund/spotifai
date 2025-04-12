@@ -5,6 +5,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 import logging
 import time
+from typing import List, Dict
 
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -60,7 +61,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
         return []
 
 
-def search_public_playlists_by_name(names, retries, delay):
+def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
     """Search for public Spotify playlists based on a list of names."""
     playlists = []
 
