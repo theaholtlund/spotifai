@@ -155,6 +155,7 @@ document
         if (data.playlists && data.playlists.length > 0) {
           data.playlists.forEach((playlist) => {
             const playlistElement = document.createElement("div");
+            playlistElement.innerHTML = playlist.name;
           });
         } else {
           suggestionsContainer.innerHTML = "<p>No playlists found.</p>";
