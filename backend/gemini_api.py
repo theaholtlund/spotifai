@@ -78,6 +78,7 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
         if not cleaned_playlists:
             logging.warning(f"No playlist names found for vibe: {vibe}")
 
+        logging.info(f"Gemini Playlist Name Suggestions: {cleaned_playlists}")
         return cleaned_playlists
     except Exception as e:
         logging.error(
