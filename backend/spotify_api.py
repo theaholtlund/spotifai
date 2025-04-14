@@ -98,3 +98,5 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
             logging.error(
                 f"Error searching for playlist: {name}, {e}", exc_info=True)
             return []
+
+    return playlists
