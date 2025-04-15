@@ -69,6 +69,7 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
         try:
             response = model.generate_content(prompt)
         except Exception as e:
+            logging.error(f"Gemini API error: {e}", exc_info=True)
             return []
 
         # Parse and clean response
