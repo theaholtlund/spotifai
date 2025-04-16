@@ -1,4 +1,4 @@
-/* Define CSS variables for consistency */
+/* === GLOBAL CSS VARIABLES === */
 :root {
   --primary-color: #ffb86e;
   --secondary-color: #ff9934;
@@ -6,7 +6,7 @@
   --text-color: #333;
 }
 
-/* Global body styling */
+/* === GLOBAL STYLES === */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -15,14 +15,16 @@ body {
   padding: 0;
 }
 
-/* Styling for main heading */
-h1 {
+h1,
+h2 {
   text-align: center;
   margin-top: 20px;
+}
+
+h1 {
   color: white;
 }
 
-/* Styling for secondary header */
 h2 {
   text-align: center;
   margin-top: 20px;
@@ -36,7 +38,6 @@ header {
   background-color: var(--primary-color);
 }
 
-/* Ensure responsive design */
 .header-graphic,
 .footer-graphic {
   width: 80%;
@@ -51,7 +52,6 @@ header {
   margin-top: 20px;
 }
 
-/* Search container background styling */
 .search-background {
   position: relative;
   width: 90%;
@@ -69,7 +69,6 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for search input field */
 #searchInput {
   width: 90%;
   max-width: 500px;
@@ -79,7 +78,7 @@ header {
   border-radius: 5px;
 }
 
-/* Styling for buttons */
+/* === BUTTON STYLING === */
 button {
   margin-top: 10px;
   padding: 10px 20px;
@@ -91,12 +90,11 @@ button {
   cursor: pointer;
 }
 
-/* Styling for buttons on hover */
 button:hover {
   background-color: var(--secondary-color);
 }
 
-/* Styling for results container */
+/* === RESULTS SECTION === */
 #results {
   margin-top: 20px;
   padding: 10px;
@@ -185,7 +183,7 @@ footer {
   background-color: var(--primary-color);
 }
 
-/* Styling for errors and error messages */
+/* === ERROR & LOADING STYLING === */
 .error,
 #error-message {
   color: red;
@@ -194,7 +192,6 @@ footer {
   margin-top: 10px;
 }
 
-/* Styling for loading spinner */
 .spinner {
   display: block;
   margin: 20px auto;
@@ -209,7 +206,6 @@ footer {
   animation: pulse 1.2s infinite ease-in-out;
 }
 
-/* Styling for hidden spinner state */
 .spinner.hidden {
   display: none;
 }
