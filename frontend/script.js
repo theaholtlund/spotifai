@@ -3,9 +3,11 @@ const API_BASE = "http://localhost:5000";
 const API_SEARCH = `${API_BASE}/search`;
 const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 
+// Grab DOM elements for UI updates
+const spinner = document.getElementById("spinner");
+
 function toggleSpinner(show) {
-  // Toggle the visibility of loading spinner based on parameter
-  document.getElementById("spinner").classList.toggle("hidden", !show);
+  spinner.classList.toggle("hidden", !show);
 }
 
 // Display error message in the UI
