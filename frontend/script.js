@@ -1,7 +1,8 @@
-// Define API URL
-const API_URL = "http://localhost:5000/search";
+// Define base API URLs for search and playlist suggestion endpoints
+const API_BASE = "http://localhost:5000";
+const API_SEARCH = `${API_BASE}/search`;
+const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 
-// Toggle the visibility of loading spinner based on parameter
 function toggleSpinner(show) {
   // Toggle the visibility of loading spinner based on parameter
   document.getElementById("spinner").classList.toggle("hidden", !show);
