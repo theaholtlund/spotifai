@@ -9,8 +9,9 @@
 /* === GLOBAL STYLES === */
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
   background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
   margin: 0;
   padding: 0;
 }
