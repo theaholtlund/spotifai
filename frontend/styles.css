@@ -27,8 +27,6 @@ h1 {
 }
 
 h2 {
-  text-align: center;
-  margin-top: 20px;
   color: var(--secondary-color);
 }
 
@@ -72,7 +70,7 @@ header {
   background: url("../static/graphic-1.jpg") left top no-repeat,
     url("../static/graphic-2.jpg") center top no-repeat,
     url("../static/graphic-3.jpg") right top no-repeat;
-  background-size: 30% auto, 30% auto, 30% auto;
+  background-size: 30% auto;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -120,7 +118,6 @@ button:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for track images */
 .track-image {
   width: 60px;
   height: 60px;
@@ -128,7 +125,6 @@ button:hover {
   margin-right: 15px;
 }
 
-/* Styling for track details */
 .track-details {
   text-align: left;
 }
