@@ -6,6 +6,10 @@ const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 // Grab DOM elements for UI updates
 const spinner = document.getElementById("spinner");
 
+/**
+ * Show or hide the loading spinner
+ * @param {boolean} show - Whether to display the spinner
+ */
 function toggleSpinner(show) {
   spinner.classList.toggle("hidden", !show);
 }
