@@ -30,7 +30,11 @@ h2 {
   color: var(--secondary-color);
 }
 
-/* Styling for header */
+main {
+  padding-top: 2rem;
+}
+
+/* === HEADER STYLING === */
 header {
   width: 100%;
   padding: 20px 0;
