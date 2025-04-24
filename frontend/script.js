@@ -5,6 +5,7 @@ const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 
 // Grab DOM elements for UI updates
 const spinner = document.getElementById("spinner");
+const resultsContainer = document.getElementById("results");
 
 /**
  * Show or hide the loading spinner
@@ -14,24 +15,20 @@ function toggleSpinner(show) {
   spinner.classList.toggle("hidden", !show);
 }
 
-// Display error message in the UI
-function displayErrorMessage(message) {
-  // Display error message in the UI
-  const errorMessageContainer = document.getElementById("error-message");
+/**
+ * Display error message to user for a limited time
+ * @param {string} message - Error message to display
+ */
+function displayError(message) {
   errorMessageContainer.textContent = message;
   errorMessageContainer.style.display = "block";
-  setTimeout(() => {
-    errorMessageContainer.style.display = "none";
-  }, 5000); // Clear message after 5 seconds
+  setTimeout(() => (errorMessageContainer.style.display = "none"), 5000);
 }
 
-// Search for songs based on user input
-function searchSongs() {
-  // Search for songs based on user input
-  const searchInput = document.getElementById("searchInput");
-  const resultsContainer = document.getElementById("results");
-  const notFoundContainer = document.getElementById("not-found");
-
+/**
+ * Clear previous search results, errors and playlist suggestions from the DOM
+ */
+function clearContainers() {
   resultsContainer.innerHTML = "";
   notFoundContainer.style.display = "none";
   document.getElementById("error-message").style.display = "none";
