@@ -1,4 +1,4 @@
-/* === GLOBAL CSS VARIABLES === */
+/* === GLOBAL VARIABLES === */
 :root {
   --primary-color: #ffb86e;
   --secondary-color: #ff9934;
@@ -6,7 +6,7 @@
   --text-color: #333;
 }
 
-/* === GLOBAL STYLES === */
+/* === GLOBAL STYLING === */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
@@ -107,6 +107,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -252,7 +253,6 @@ footer {
 
   .track-card {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
