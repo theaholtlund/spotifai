@@ -64,6 +64,7 @@ header {
   position: relative;
 }
 
+/* === SEARCH SECTION === */
 .search-container {
   display: flex;
   justify-content: center;
