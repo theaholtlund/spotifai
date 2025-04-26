@@ -70,6 +70,10 @@ header {
   font-size: 1.1rem;
   font-weight: 500;
   padding: 1rem 1.5rem;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
 
 /* === SEARCH SECTION === */
