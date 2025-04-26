@@ -132,8 +132,8 @@ button:hover {
   padding: 10px;
 }
 
-/* Styling for individual track items */
-.track-card {
+.track-card,
+.playlist-suggestion-item {
   display: flex;
   align-items: center;
   background-color: white;
