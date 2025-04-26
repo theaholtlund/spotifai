@@ -83,6 +83,7 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                         "name": playlist['name'],
                         "external_urls": playlist['external_urls']
                     })
+                    logging.info(f"External URL: {items}.")
                 else:
                     logging.warning(f"No playlists found for: {name}")
             else:
