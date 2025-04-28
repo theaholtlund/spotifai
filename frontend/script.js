@@ -6,6 +6,7 @@ const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 // Grab DOM elements for UI updates
 const spinner = document.getElementById("spinner");
 const resultsContainer = document.getElementById("results");
+const notFoundContainer = document.getElementById("not-found");
 
 /**
  * Show or hide the loading spinner
@@ -30,6 +31,7 @@ function displayError(message) {
  */
 function clearContainers() {
   resultsContainer.innerHTML = "";
+  notFoundContainer.innerHTML = "";
   notFoundContainer.style.display = "none";
   document.getElementById("error-message").style.display = "none";
 
