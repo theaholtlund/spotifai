@@ -181,21 +181,18 @@ button:hover {
   margin-right: auto;
 }
 
-/* Styling for not found paragraphs */
 #not-found p {
   font-size: 16px;
   color: #d9534f;
   font-weight: bold;
 }
 
-/* Styling for not found list */
 #not-found ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* Styling for not found list item */
 #not-found li {
   font-size: 14px;
   color: #d9534f;
