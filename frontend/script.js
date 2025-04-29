@@ -33,21 +33,7 @@ function clearContainers() {
   resultsContainer.innerHTML = "";
   notFoundContainer.innerHTML = "";
   notFoundContainer.style.display = "none";
-  document.getElementById("error-message").style.display = "none";
 
-  if (!searchInput) {
-    console.error("Search input field not found!");
-    return;
-  }
-
-  const query = searchInput.value.trim();
-
-  if (!query) {
-    displayErrorMessage("Please enter a search query.");
-    return;
-  }
-
-  toggleSpinner(true);
 
   fetch(API_URL, {
     method: "POST",
