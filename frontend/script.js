@@ -14,64 +14,6 @@ const notFoundContainer = document.getElementById("not-found");
  */
 function toggleSpinner(show) {
   spinner.classList.toggle("hidden", !show);
-}
-
-/**
- * Display error message to user for a limited time
- * @param {string} message - Error message to display
- */
-function displayError(message) {
-  errorMessageContainer.textContent = message;
-  errorMessageContainer.style.display = "block";
-  setTimeout(() => (errorMessageContainer.style.display = "none"), 5000);
-}
-
-/**
- * Clear previous search results, errors and playlist suggestions from the DOM
- */
-function clearContainers() {
-  resultsContainer.innerHTML = "";
-  notFoundContainer.innerHTML = "";
-  notFoundContainer.style.display = "none";
-
-
-  fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-  })
-    .then((response) => {
-      // Check if the API response is successful
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("API Response:", data);
-      displayResults(data.tracks_found || []);
-      displayNotFound(data.tracks_not_found || []);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      displayErrorMessage("Failed to fetch results. Please try again later.");
-    })
-    .finally(() => toggleSpinner(false));
-}
-
-// Display the search results in the UI
-function displayResults(tracks) {
-  // Display the search results in the UI
-  const resultsContainer = document.getElementById("results");
-  resultsContainer.innerHTML = "";
-
-  // If no tracks are found, display appropriate message
-  if (!Array.isArray(tracks) || tracks.length === 0) {
-    resultsContainer.innerHTML = `<p class="no-results">No results found.</p>`;
-    return;
-  }
 
   tracks.forEach((track) => {
     const trackElement = document.createElement("div");
