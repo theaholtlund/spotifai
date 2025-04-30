@@ -7,6 +7,7 @@ const API_SUGGEST = `${API_BASE}/suggest_playlists`;
 const spinner = document.getElementById("spinner");
 const resultsContainer = document.getElementById("results");
 const notFoundContainer = document.getElementById("not-found");
+const errorMessageContainer = document.getElementById("error-message");
 
 /**
  * Show or hide the loading spinner
@@ -14,6 +15,16 @@ const notFoundContainer = document.getElementById("not-found");
  */
 function toggleSpinner(show) {
   spinner.classList.toggle("hidden", !show);
+}
+
+/**
+ * @param {string} message
+ */
+function displayError(message) {
+  errorMessageContainer.textContent = message;
+  errorMessageContainer.style.display = "block";
+  setTimeout(() => (errorMessageContainer.style.display = "none"), 5000);
+}
 
   tracks.forEach((track) => {
     const trackElement = document.createElement("div");
