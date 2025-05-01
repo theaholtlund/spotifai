@@ -168,6 +168,11 @@ button:hover {
   text-decoration: underline;
 }
 
+.playlist-suggestions {
+  margin-top: 20px;
+  padding: 10px;
+}
+
 .playlist-suggestions p {
   color: #666;
   font-size: 16px;
