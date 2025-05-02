@@ -163,8 +163,9 @@ button:hover {
   font-size: 16px;
 }
 
-/* Styling for links to Spotify on hover */
-.spotify-link:hover {
+.spotify-link:hover,
+.playlist-suggestion-item a:hover {
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
