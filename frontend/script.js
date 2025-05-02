@@ -18,7 +18,8 @@ function toggleSpinner(show) {
 }
 
 /**
- * @param {string} message
+ * Display error message to user for a limited time
+ * @param {string} message - Error message to display
  */
 function displayError(message) {
   errorMessageContainer.textContent = message;
