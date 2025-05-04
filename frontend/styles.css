@@ -264,7 +264,10 @@ footer {
   }
 }
 
-/* Responsive design adjustments */
+footer {
+  margin-top: 50px;
+  padding: 20px 0;
+}
 @media (max-width: 768px) {
   .search-background {
     padding: 20px;
