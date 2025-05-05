@@ -270,6 +270,8 @@ footer {
   padding: 20px 0;
   background-color: var(--primary-color);
 }
+
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .search-background {
     padding: 20px;
