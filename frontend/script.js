@@ -8,6 +8,7 @@ const spinner = document.getElementById("spinner");
 const resultsContainer = document.getElementById("results");
 const notFoundContainer = document.getElementById("not-found");
 const errorMessageContainer = document.getElementById("error-message");
+const suggestionsContainer = document.getElementById("playlistSuggestions");
 
 /**
  * Show or hide the loading spinner
@@ -25,6 +26,14 @@ function displayError(message) {
   errorMessageContainer.textContent = message;
   errorMessageContainer.style.display = "block";
   setTimeout(() => (errorMessageContainer.style.display = "none"), 5000);
+}
+
+function clearContainers() {
+  resultsContainer.innerHTML = "";
+  notFoundContainer.innerHTML = "";
+  notFoundContainer.style.display = "none";
+  errorMessageContainer.style.display = "none";
+  suggestionsContainer.innerHTML = "";
 }
 
   tracks.forEach((track) => {
