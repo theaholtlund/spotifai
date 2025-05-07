@@ -28,6 +28,9 @@ function displayError(message) {
   setTimeout(() => (errorMessageContainer.style.display = "none"), 5000);
 }
 
+/**
+ * Clear previous search results, errors and playlist suggestions from the DOM
+ */
 function clearContainers() {
   resultsContainer.innerHTML = "";
   notFoundContainer.innerHTML = "";
