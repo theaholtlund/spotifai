@@ -39,6 +39,16 @@ function clearContainers() {
   suggestionsContainer.innerHTML = "";
 }
 
+document.getElementById("searchForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const query = document.getElementById("searchInput").value.trim();
+
+  toggleSpinner(true);
+  clearContainers();
+
+});
+
+
   tracks.forEach((track) => {
     const trackElement = document.createElement("div");
     trackElement.className = "track";
