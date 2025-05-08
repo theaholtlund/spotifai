@@ -42,6 +42,7 @@ function clearContainers() {
 document.getElementById("searchForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const query = document.getElementById("searchInput").value.trim();
+  if (!query) return displayError("Please enter a search query.");
 
   toggleSpinner(true);
   clearContainers();
