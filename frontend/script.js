@@ -47,8 +47,16 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
   toggleSpinner(true);
   clearContainers();
 
+  try {
+    const res = await fetch(API_SEARCH, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+    });
+  } catch (err) {
+    console.error(err);
+  }
 });
-
 
   tracks.forEach((track) => {
     const trackElement = document.createElement("div");
