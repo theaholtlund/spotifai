@@ -40,12 +40,12 @@ function clearContainers() {
 }
 
 document.getElementById("searchForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const query = document.getElementById("searchInput").value.trim();
+  e.preventDefault(); // Prevent page reload on form submit
+  const query = document.getElementById("searchInput").value.trim(); // Get user input
   if (!query) return displayError("Please enter a search query.");
 
-  toggleSpinner(true);
-  clearContainers();
+  toggleSpinner(true); // Show loading spinner
+  clearContainers(); // Clear previous results
 
   try {
     const res = await fetch(API_SEARCH, {
