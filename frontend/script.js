@@ -60,6 +60,12 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
   }
 });
 
+function renderResults(tracks = []) {
+  if (!tracks.length) {
+    resultsContainer.innerHTML = '<p class="no-results">No results found.</p>';
+    return;
+  }
+
   tracks.forEach((track) => {
     const trackElement = document.createElement("div");
     trackElement.className = "track";
