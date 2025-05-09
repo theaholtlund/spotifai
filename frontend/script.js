@@ -39,6 +39,7 @@ function clearContainers() {
   suggestionsContainer.innerHTML = "";
 }
 
+// Handle search form submission
 document.getElementById("searchForm").addEventListener("submit", async (e) => {
   e.preventDefault(); // Prevent page reload on form submit
   const query = document.getElementById("searchInput").value.trim(); // Get user input
@@ -48,6 +49,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
   clearContainers(); // Clear previous results
 
   try {
+    // Send POST request to search endpoint with the query
     const res = await fetch(API_SEARCH, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
