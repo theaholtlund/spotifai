@@ -57,6 +57,8 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
     });
   } catch (err) {
     console.error(err);
+  } finally {
+    toggleSpinner(false);
   }
 });
 
