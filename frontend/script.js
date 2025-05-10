@@ -62,7 +62,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
   } catch (err) {
     console.error(err);
   } finally {
-    toggleSpinner(false);
+    toggleSpinner(false); // Hide spinner regardless of success/failure
   }
 });
 
@@ -99,8 +99,7 @@ function renderResults(tracks = []) {
         </div>
       </div>
     `;
-
-    resultsContainer.appendChild(trackElement);
+    resultsContainer.appendChild(el); // Add track card to DOM
   });
 }
 
