@@ -86,17 +86,6 @@ function renderResults(tracks = []) {
         <img src="${track.album?.images[0]?.url || ""}" alt="${
       track.name
     }" class="track-image">
-        <div class="track-details">
-          <h3>${track.name}</h3>
-          <p><strong>Artist:</strong> ${track.artists
-            .map((artist) => artist.name)
-            .join(", ")}</p>
-          <a href="${
-            track.external_urls?.spotify || "#"
-          }" target="_blank" class="spotify-link" aria-label="Listen to ${
-      track.name
-    } on Spotify">Listen on Spotify</a>
-        </div>
       </div>
     `;
     resultsContainer.appendChild(el); // Add track card to DOM
