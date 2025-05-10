@@ -60,6 +60,10 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
   }
 });
 
+/**
+ * Render the list of found tracks to the results container
+ * @param {Array} tracks - Array of track objects found from the search
+ */
 function renderResults(tracks = []) {
   if (!tracks.length) {
     resultsContainer.innerHTML = '<p class="no-results">No results found.</p>';
