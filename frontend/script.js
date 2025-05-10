@@ -55,6 +55,9 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query }),
     });
+
+    const data = await res.json();
+    renderResults(data.tracks_found);
   } catch (err) {
     console.error(err);
   } finally {
