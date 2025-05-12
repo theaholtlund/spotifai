@@ -56,7 +56,8 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
       body: JSON.stringify({ query }),
     });
 
-    if (!res.ok) throw new Error(res.status);
+    if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+
     const data = await res.json();
     renderResults(data.tracks_found);
   } catch (err) {
