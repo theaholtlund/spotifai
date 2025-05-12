@@ -62,6 +62,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
     renderResults(data.tracks_found);
   } catch (err) {
     console.error(err);
+    displayError("Failed to fetch results. Try again later.");
   } finally {
     toggleSpinner(false); // Hide spinner regardless of success/failure
   }
