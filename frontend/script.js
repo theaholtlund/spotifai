@@ -123,32 +123,14 @@ document
   .getElementById("suggestPlaylistButton")
   .addEventListener("click", function () {
     const vibe = document.getElementById("vibeInput").value.trim();
-    if (!vibe) {
-      displayErrorMessage("Please enter a vibe.");
-      return;
-    }
 
-    fetch(
-      `http://localhost:5000/suggest_playlists?vibe=${encodeURIComponent(vibe)}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const suggestionsContainer = document.getElementById(
-          "playlistSuggestions"
-        );
-        suggestionsContainer.innerHTML = ""; // Clear previous suggestions
-        if (data.playlists && data.playlists.length > 0) {
-          data.playlists.forEach((playlist) => {
-            const playlistElement = document.createElement("div");
-            playlistElement.innerHTML = playlist.name;
-            suggestionsContainer.appendChild(playlistElement);
-          });
-        } else {
-          suggestionsContainer.innerHTML = "<p>No playlists found.</p>";
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching playlist suggestions:", error);
-        displayErrorMessage("Failed to fetch playlist suggestions.");
-      });
+    const res = await fetch(`${API_SUGGEST}?vibe=${encodeURIComponent(vibe)}`);
+    const data = await res.json();
+
+    data.playlists.forEach((p) => {
+      const el = document.createElement("div");
+      el.className = "playlist-suggestion-item";
+      el.innerHTML = `<a href="${p.external_urls.spotify}" target="_blank">${p.name}</a>`;
+      suggestionsContainer.appendChild(el);
+    });
   });
