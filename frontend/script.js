@@ -60,6 +60,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
 
     const data = await res.json();
     renderResults(data.tracks_found);
+    renderNotFound(data.tracks_not_found);
   } catch (err) {
     console.error(err);
     displayError("Failed to fetch results. Try again later.");
