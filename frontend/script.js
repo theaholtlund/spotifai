@@ -80,8 +80,8 @@ function renderResults(tracks = []) {
   }
 
   tracks.forEach((track) => {
-    const trackElement = document.createElement("div");
-    trackElement.className = "track";
+    const el = document.createElement("div");
+    el.className = "track-card";
 
     // Construct track card with image, name, artist and Spotify link
     trackElement.innerHTML = `
