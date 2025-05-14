@@ -59,8 +59,8 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
     if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
 
     const data = await res.json();
-    renderResults(data.tracks_found);
-    renderNotFound(data.tracks_not_found);
+    renderResults(data.tracks_found); // Display found tracks
+    renderNotFound(data.tracks_not_found); // Display not found tracks
   } catch (err) {
     console.error(err);
     displayError("Failed to fetch results. Try again later.");
