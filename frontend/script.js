@@ -112,9 +112,9 @@ function displayNotFound(notFound) {
 
   const list = document.createElement("ul");
   notFound.forEach((song) => {
-    const songItem = document.createElement("li");
-    songItem.textContent = `🎵 ${song}`;
-    list.appendChild(songItem);
+    const item = document.createElement("li");
+    item.textContent = ` ${song}`;
+    list.appendChild(item);
   });
 
   notFoundContainer.appendChild(list);
