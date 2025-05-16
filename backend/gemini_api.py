@@ -11,13 +11,17 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 MODEL_NAME = 'gemini-2.0-flash'
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-# Configure Gemini API client
-if not GEMINI_API_KEY:
-    logging.critical("Missing Gemini API Key. Ensure it is set in environment variables.")
-    raise ValueError("Missing Gemini API Key")
 
-genai.configure(api_key=GEMINI_API_KEY)
-logging.info("Gemini API successfully configured.")
+def configure_gemini():
+    """Configure the Gemini API client."""
+    if not GEMINI_API_KEY:
+        logging.critical("Missing Gemini API Key. Ensure it is set in environment variables.")
+        raise ValueError("Missing Gemini API Key")
+    genai.configure(api_key=GEMINI_API_KEY)
+    logging.info("Gemini API successfully configured.")
+
+
+configure_gemini()
 
 
 def get_songs_from_gemini(keyword, max_songs=5):
