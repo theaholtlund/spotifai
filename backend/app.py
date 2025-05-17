@@ -38,7 +38,7 @@ def rate_limit(func):
     return wrapper
 
 
-def error_response(message, status_code):
+def error_response(message: str, status_code: int):
     """Utility function to return standardised error responses."""
     logging.error(f"Error {status_code}: {message}")
     return jsonify({"error": message}), status_code
