@@ -1,11 +1,12 @@
 # Import required libraries
 import os
+import time
+import logging
+from typing import List, Dict
+
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
-import logging
-import time
-from typing import List, Dict
 
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
