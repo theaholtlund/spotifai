@@ -35,7 +35,6 @@ def get_songs_from_gemini(keyword, max_songs=5):
         model = genai.GenerativeModel(MODEL_NAME)
         prompt = f"Give me the title of {max_songs} common songs that exist on Spotify in the format Song - Artist related to the word: {keyword}, with no other text than this"
 
-        # Improve error handling
         try:
             response = model.generate_content(prompt)
         except Exception as e:
@@ -69,7 +68,6 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
         model = genai.GenerativeModel(MODEL_NAME)
         prompt = f"Generate {max_names} creative names for playlists based on the theme '{vibe}'. Only return a list of names, no extra text."
 
-        # Improve error handling
         try:
             response = model.generate_content(prompt)
         except Exception as e:
