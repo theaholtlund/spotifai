@@ -20,11 +20,10 @@ try:
         client_id=os.getenv("SPOTIFY_CLIENT_ID"),
         client_secret=os.getenv("SPOTIFY_CLIENT_SECRET")
     ))
-    logging.info("Spotify client successfully authenticated.")
-except Exception as e:
-    # Log the error if authentication fails
+    logging.info("Spotify client authenticated.")
+except Exception:
     logging.critical("Failed to authenticate Spotify API", exc_info=True)
-    raise e
+    raise
 
 
 def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
@@ -85,7 +84,6 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                         "name": playlist['name'],
                         "external_urls": playlist['external_urls']
                     })
-                    logging.info(f"External URL: {items}.")
                 else:
                     logging.warning(f"No playlists found for: {name}")
             else:
