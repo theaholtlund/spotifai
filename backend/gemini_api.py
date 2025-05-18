@@ -21,6 +21,7 @@ def configure_gemini():
     logging.info("Gemini API successfully configured.")
 
 
+# Configure the Gemini API client
 configure_gemini()
 
 
