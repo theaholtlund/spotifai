@@ -14,11 +14,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 # Load environment variables
 load_dotenv()
 
-# Spotify authentication
+# Authenticate with Spotify
 try:
     sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-        client_id=os.getenv('SPOTIFY_CLIENT_ID'),
-        client_secret=os.getenv('SPOTIFY_CLIENT_SECRET')
+        client_id=os.getenv("SPOTIFY_CLIENT_ID"),
+        client_secret=os.getenv("SPOTIFY_CLIENT_SECRET")
     ))
     logging.info("Spotify client successfully authenticated.")
 except Exception as e:
