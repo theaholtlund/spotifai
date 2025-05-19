@@ -84,10 +84,9 @@ function renderResults(tracks = []) {
     const el = document.createElement("div");
     el.className = "track-card";
 
-    // Construct track card with image, name, artist and Spotify link
-    trackElement.innerHTML = `
-      <div class="track-card">
-        <img src="${track.album?.images[0]?.url || ""}" alt="${
+    // Create a card with album image, name, artist(s) and Spotify link
+    el.innerHTML = `
+      <img src="${track.album?.images[0]?.url || ""}" alt="${
       track.name
     }" class="track-image">
       </div>
