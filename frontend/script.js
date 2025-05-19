@@ -58,6 +58,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
 
+    // Parse the JSON response
     const data = await res.json();
     renderResults(data.tracks_found); // Display found tracks
     renderNotFound(data.tracks_not_found); // Display not found tracks
@@ -116,8 +117,7 @@ function displayNotFound(notFound) {
     item.textContent = ` ${song}`;
     list.appendChild(item);
   });
-
-  notFoundContainer.appendChild(list);
+  notFoundContainer.appendChild(list); // Add the list to the DOM
 }
 
 // Handle click event for playlist suggestion button
