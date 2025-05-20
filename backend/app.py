@@ -45,7 +45,7 @@ def error_response(message: str, status_code: int):
 
 
 def find_spotify_tracks(song_list):
-    """Search for tracks on Spotify based on a list of song names, return tracks found and tracks not found."""
+    """Return track data from Spotify and a list of unfound songs."""
     tracks_found = []
     tracks_not_found = []
     for song in song_list:
