@@ -91,6 +91,9 @@ function renderResults(tracks = []) {
     }" class="track-image">
       <div class="track-details">
         <h3>${track.name}</h3>
+        <p><strong>Artist:</strong> ${track.artists
+          .map((a) => a.name)
+          .join(", ")}</p>
       </div>
     `;
     resultsContainer.appendChild(el); // Add track card to DOM
