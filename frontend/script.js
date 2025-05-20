@@ -89,6 +89,8 @@ function renderResults(tracks = []) {
       <img src="${track.album?.images[0]?.url || ""}" alt="${
       track.name
     }" class="track-image">
+      <div class="track-details">
+        <h3>${track.name}</h3>
       </div>
     `;
     resultsContainer.appendChild(el); // Add track card to DOM
