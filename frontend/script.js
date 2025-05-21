@@ -136,10 +136,15 @@ document
     const res = await fetch(`${API_SUGGEST}?vibe=${encodeURIComponent(vibe)}`);
     const data = await res.json();
 
-    data.playlists.forEach((p) => {
-      const el = document.createElement("div");
-      el.className = "playlist-suggestion-item";
-      el.innerHTML = `<a href="${p.external_urls.spotify}" target="_blank">${p.name}</a>`;
-      suggestionsContainer.appendChild(el);
-    });
+      if (data.playlists?.length) {
+        data.playlists.forEach((p) => {
+          const el = document.createElement("div");
+          el.className = "playlist-suggestion-item";
+          el.innerHTML = `<a href="${p.external_urls.spotify}" target="_blank">${p.name}</a>`;
+          suggestionsContainer.appendChild(el);
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   });
