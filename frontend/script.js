@@ -143,6 +143,8 @@ document
           el.innerHTML = `<a href="${p.external_urls.spotify}" target="_blank">${p.name}</a>`;
           suggestionsContainer.appendChild(el);
         });
+      } else {
+        suggestionsContainer.innerHTML = "<p>No playlists found.</p>";
       }
     } catch (err) {
       console.error(err);
