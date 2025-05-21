@@ -94,6 +94,9 @@ function renderResults(tracks = []) {
         <p><strong>Artist:</strong> ${track.artists
           .map((a) => a.name)
           .join(", ")}</p>
+        <a href="${
+          track.external_urls?.spotify || "#"
+        }" target="_blank" class="spotify-link">Listen</a>
       </div>
     `;
     resultsContainer.appendChild(el); // Add track card to DOM
