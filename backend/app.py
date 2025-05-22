@@ -44,7 +44,7 @@ def error_response(message: str, status_code: int):
     return jsonify({"error": message}), status_code
 
 
-def find_spotify_tracks(song_list):
+def find_spotify_tracks(song_list: List[str]) -> Tuple[List[dict], List[str]]:
     """Return track data from Spotify and a list of unfound songs."""
     tracks_found = []
     tracks_not_found = []
