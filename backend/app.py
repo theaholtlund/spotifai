@@ -117,7 +117,7 @@ def suggest_playlists():
         playlists_found = search_public_playlists_by_name(suggested_names)
         return jsonify({"playlists": playlists_found}), 200
     except Exception as e:
-        logging.exception(f"Unexpected server error: {e}")
+        logging.exception(f"Unexpected error during playlist suggestion: {e}")
         return error_response(f"Internal server error: {str(e)}", 500)
 
 
