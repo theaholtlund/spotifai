@@ -32,7 +32,7 @@ def rate_limit(func):
         now = time.time()
         request_times[:] = [t for t in request_times if t > now - 60]
         if len(request_times) >= RATE_LIMIT:
-            return jsonify({"Error": "Too many requests, please try again later."}), 429
+            return jsonify({"error": "too many requests, please try again later."}), 429
         request_times.append(now)
         return func(*args, **kwargs)
     return wrapper
@@ -48,6 +48,7 @@ def find_spotify_tracks(song_list: List[str]) -> Tuple[List[dict], List[str]]:
     """Return track data from Spotify and a list of unfound songs."""
     tracks_found = []
     tracks_not_found = []
+
     for song in song_list:
         try:
             if song in spotify_cache:
@@ -63,6 +64,7 @@ def find_spotify_tracks(song_list: List[str]) -> Tuple[List[dict], List[str]]:
             logging.error(
                 f"Error searching for track '{song}' on Spotify: {str(e)}")
             tracks_not_found.append(song)
+
     return tracks_found, tracks_not_found
 
 
