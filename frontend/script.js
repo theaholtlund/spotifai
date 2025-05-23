@@ -96,7 +96,7 @@ function renderResults(tracks = []) {
           .join(", ")}</p>
         <a href="${
           track.external_urls?.spotify || "#"
-        }" target="_blank" class="spotify-link">Listen</a>
+        }" target="_blank" class="spotify-link">Listen on Spotify</a>
       </div>
     `;
     resultsContainer.appendChild(el); // Add track card to DOM
