@@ -52,12 +52,13 @@ def find_spotify_tracks(song_list: List[str]) -> Tuple[List[dict], List[str]]:
     for song in song_list:
         try:
             if song in spotify_cache:
-                spotify_results = spotify_cache[song]
+                results = spotify_cache[song]
             else:
-                spotify_results = search_spotify_tracks(song)
-                spotify_cache[song] = spotify_results
-            if spotify_results:
-                tracks_found.extend(spotify_results)
+                results = search_spotify_tracks(song)
+                spotify_cache[song] = results
+
+            if results:
+                tracks_found.extend(results)
             else:
                 tracks_not_found.append(song)
         except Exception as e:
