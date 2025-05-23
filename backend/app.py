@@ -84,7 +84,7 @@ def search_songs_with_gemini_suggestions():
         logging.info(f"Received query: {query} for song search")
 
         if not query:
-            return error_response("Query cannot be empty", 400)
+            return error_response("Query is required and cannot be empty", 400)
 
         # Fetch song suggestions from Gemini
         if query in gemini_cache:
