@@ -106,6 +106,7 @@ function renderResults(tracks = []) {
 function renderNotFound(notFound = []) {
   if (!notFound.length) {
     notFoundContainer.style.display = "none";
+    notFoundContainer.innerHTML = "";
     return;
   }
 
