@@ -144,5 +144,6 @@ document
       }
     } catch (err) {
       console.error(err);
+      displayError("Failed to fetch playlist suggestions.");
     }
   });
