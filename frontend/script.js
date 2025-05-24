@@ -103,13 +103,8 @@ function renderResults(tracks = []) {
   });
 }
 
-// Display songs that were not found
-function displayNotFound(notFound) {
-  // Display songs that were not found
-  const notFoundContainer = document.getElementById("not-found");
-
-  // Ensure section is hidden when empty
-  if (!Array.isArray(notFound) || notFound.length === 0) {
+function renderNotFound(notFound = []) {
+  if (!notFound.length) {
     notFoundContainer.style.display = "none";
     return;
   }
