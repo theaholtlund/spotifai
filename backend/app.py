@@ -62,8 +62,7 @@ def find_spotify_tracks(song_list: List[str]) -> Tuple[List[dict], List[str]]:
             else:
                 tracks_not_found.append(song)
         except Exception as e:
-            logging.error(
-                f"Error searching for track '{song}' on Spotify: {str(e)}")
+            logging.exception(f"Error searching for track: '{song}'")
             tracks_not_found.append(song)
 
     return tracks_found, tracks_not_found
