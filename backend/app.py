@@ -111,7 +111,7 @@ def search_songs_with_gemini_suggestions():
 @app.route('/suggest_playlists', methods=['GET'])
 def suggest_playlists():
     try:
-        vibe = request.args.get('vibe')
+        vibe = request.args.get('vibe', '').strip()
         if not vibe:
             return error_response("Vibe is required", 400)
 
