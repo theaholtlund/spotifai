@@ -75,7 +75,6 @@ def search_songs_with_gemini_suggestions():
     try:
         data = request.get_json()
 
-
         query = (data or {}).get('query', '').strip()
         logging.info(f"Received query: {query} for song search")
 
@@ -93,7 +92,6 @@ def search_songs_with_gemini_suggestions():
             logging.info("No song suggestions found")
             return error_response("No song suggestions found", 404)
 
-        # Search for tracks on Spotify based on Gemini suggestions
         tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
 
         logging.info(
