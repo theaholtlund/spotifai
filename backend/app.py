@@ -79,7 +79,7 @@ def search_songs_with_gemini_suggestions():
         if not data or 'query' not in data:
             return error_response("Query is required", 400)
 
-        query = data['query'].strip()
+        query = (data or {}).get('query', '').strip()
         logging.info(f"Received query: {query} for song search")
 
         if not query:
