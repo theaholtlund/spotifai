@@ -26,7 +26,7 @@ except Exception:
     raise
 
 
-def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
+def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict]:
     """Search for tracks on Spotify based on query input of title and artist."""
     try:
         # Split the song_name to separate title and artist
