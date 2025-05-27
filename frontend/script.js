@@ -103,6 +103,10 @@ function renderResults(tracks = []) {
   });
 }
 
+/**
+ * Render a list of songs that were not found on Spotify
+ * @param {Array} notFound - Array of song names that were not found
+ */
 function renderNotFound(notFound = []) {
   if (!notFound.length) {
     notFoundContainer.style.display = "none";
