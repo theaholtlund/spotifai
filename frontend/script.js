@@ -130,7 +130,7 @@ function renderNotFound(notFound = []) {
 // Handle click event for playlist suggestion button
 document
   .getElementById("suggestPlaylistButton")
-  .addEventListener("click", function () {
+  .addEventListener("click", async () => {
     const vibe = document.getElementById("vibeInput").value.trim();
 
     try {
