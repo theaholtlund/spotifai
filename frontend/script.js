@@ -133,8 +133,11 @@ document
   .addEventListener("click", function () {
     const vibe = document.getElementById("vibeInput").value.trim();
 
-    const res = await fetch(`${API_SUGGEST}?vibe=${encodeURIComponent(vibe)}`);
-    const data = await res.json();
+    try {
+      const res = await fetch(
+        `${API_SUGGEST}?vibe=${encodeURIComponent(vibe)}`
+      );
+      const data = await res.json();
 
       if (data.playlists?.length) {
         data.playlists.forEach((p) => {
