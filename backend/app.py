@@ -111,8 +111,9 @@ def suggest_playlists():
             return error_response("Vibe is required", 400)
 
         suggested_names = suggest_playlist_names(vibe, max_names=5)
-        playlists_found = search_public_playlists_by_name(suggested_names)
-        return jsonify({"playlists": playlists_found}), 200
+        playlists = search_public_playlists_by_name(suggested_names)
+        return jsonify({"playlists": playlists}), 200
+
     except Exception as e:
         logging.exception(f"Unexpected error during playlist suggestion: {e}")
         return error_response(f"Internal server error: {str(e)}", 500)
