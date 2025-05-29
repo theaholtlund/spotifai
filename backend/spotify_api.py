@@ -28,8 +28,7 @@ except Exception:
 
 def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> List[Dict]:
     """Search for tracks on Spotify based on query input of title and artist."""
-    """Search for tracks on Spotify based on query input of title and artist."""
-    # Check if the song_name format is valid, must contain exactly one ' - '
+    # Check if the song_name format is valid, must contain a ' - '
     if ' - ' not in song_name:
         logging.warning(f"Invalid song name format: {song_name}")
         return []
