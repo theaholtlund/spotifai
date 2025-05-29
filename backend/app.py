@@ -89,7 +89,6 @@ def search_songs_with_gemini_suggestions():
             gemini_cache[query] = gemini_songs
 
         if not gemini_songs:
-            logging.info("No song suggestions found")
             return error_response("No song suggestions found", 404)
 
         tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
