@@ -134,11 +134,13 @@ document
     const vibe = document.getElementById("vibeInput").value.trim();
 
     try {
+      // Send GET request to suggest playlists based on vibe
       const res = await fetch(
         `${API_SUGGEST}?vibe=${encodeURIComponent(vibe)}`
       );
       const data = await res.json();
 
+      // Display playlists if any are returned
       if (data.playlists?.length) {
         data.playlists.forEach((p) => {
           const el = document.createElement("div");
