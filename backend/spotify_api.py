@@ -86,21 +86,17 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                 logging.warning(
                     f"Empty or invalid results returned for: {name}")
 
-        except spotipy.exceptions.SpotifyException as e:
-            # Handle rate limit exceptions and retry if necessary
-            if retries > 0 and 'rate limit exceeded' in str(e).lower():
-                logging.warning(
-                    f"Spotify rate limit exceeded, retrying in {delay} seconds...")
-                time.sleep(delay)  # Wait before retrying
-                # Retry with increased delay
-                return search_public_playlists_by_name(names, retries - 1, delay * 2)
-            else:
-                logging.error(f"Spotify API error: {e}", exc_info=True)
-                return []  # Return empty list if other errors occur
-        except Exception as e:
-            # Handle any other exceptions
-            logging.error(
-                f"Error searching for playlist: {name}, {e}", exc_info=True)
-            return []
+            except spotipy.exceptions.SpotifyException as e:
+                # Handle rate limit exceptions and retry if necessary
+                if 'rate limit exceeded' in str(e).lower():
+                    wait_time = delay * (2 ** attempt)
+                    logging.warning(f"Rate limited. Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                else:
+                    logging.error(f"Spotify API error: {e}", exc_info=True)
+                    break
+            except Exception as e:
+                logging.error(f"Unexpected error searching for playlist '{name}': {e}", exc_info=True)
+                break
 
     return playlists
