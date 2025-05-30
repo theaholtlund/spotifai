@@ -33,28 +33,27 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
         logging.warning(f"Invalid song name format: {song_name}")
         return []
 
-        title, artist = parts
-        search_query = f"track:{title.strip()} artist:{artist.strip()}"
+    title, artist = map(str.strip, song_name.split(' - ', 1))
+    query = f"track:{title} artist:{artist}"
 
-        logging.info(f"Searching for track: {song_name}")
-        results = sp.search(q=search_query, type='track', limit=1)
-        return results.get('tracks', {}).get('items', [])
+    for attempt in range(retries):
+        try:
+            logging.info(f"Searching Spotify for: {song_name}")
+            result = sp.search(q=query, type='track', limit=1)
+            return result.get('tracks', {}).get('items', [])
+        except spotipy.exceptions.SpotifyException as e:
+            if 'rate limit exceeded' in str(e).lower():
+                wait_time = delay * (2 ** attempt)
+                logging.warning(f"Rate limit exceeded. Retrying in {wait_time} seconds...")
+                time.sleep(wait_time)
+            else:
+                logging.error(f"Spotify API error: {e}", exc_info=True)
+                break
+        except Exception as e:
+            logging.error(f"Unexpected error: {e}", exc_info=True)
+            break
 
-    except spotipy.exceptions.SpotifyException as e:
-        # Handle rate limit exceptions and retry if necessary
-        if retries > 0 and 'rate limit exceeded' in str(e).lower():
-            logging.warning(
-                f"Spotify rate limit exceeded, retrying in {delay} seconds...")
-            time.sleep(delay)
-            # Wait before retrying and retry with increased delay
-            return search_spotify_tracks(song_name, retries - 1, delay * 2)
-        else:
-            logging.error(f"Spotify API error: {e}", exc_info=True)
-            return []
-    except Exception as e:
-        logging.error(
-            f"Error searching for track: {song_name}, {e}", exc_info=True)
-        return []
+    return []
 
 
 def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: int = 1) -> List[Dict[str, str]]:
