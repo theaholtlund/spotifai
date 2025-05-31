@@ -131,7 +131,9 @@ function renderNotFound(notFound = []) {
 document
   .getElementById("suggestPlaylistButton")
   .addEventListener("click", async () => {
-    const vibe = document.getElementById("vibeInput").value.trim();
+    const vibe = document.getElementById("vibeInput").value.trim(); // Get user vibe input
+
+    suggestionsContainer.innerHTML = ""; // Clear any previous suggestions
 
     try {
       // Send GET request to suggest playlists based on vibe
