@@ -132,6 +132,7 @@ document
   .getElementById("suggestPlaylistButton")
   .addEventListener("click", async () => {
     const vibe = document.getElementById("vibeInput").value.trim(); // Get user vibe input
+    if (!vibe) return displayError("Please enter a vibe.");
 
     suggestionsContainer.innerHTML = ""; // Clear any previous suggestions
 
