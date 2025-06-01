@@ -62,11 +62,11 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
     playlists = []
 
     for name in names:
-        try:
-            logging.info(f"Searching for playlist: {name}")
-            # Perform the search query on Spotify for each playlist name
-            results = sp.search(q=name, type='playlist', limit=1)
-            logging.info(f"These are the results for {name}: {results}.")
+        for attempt in range(retries):
+            try:
+                result = sp.search(q=name, type='playlist', limit=1)
+                items = result.get('playlists', {}).get('items', [])
+
 
             # Check if the search results contain valid playlist data
             if results and 'playlists' in results and 'items' in results['playlists']:
