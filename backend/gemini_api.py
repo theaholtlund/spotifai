@@ -15,8 +15,9 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 def configure_gemini():
     """Configure the Gemini API client."""
     if not GEMINI_API_KEY:
-        logging.critical("Missing Gemini API Key. Ensure it is set in the environment variables.")
-        raise ValueError("Missing Gemini API Key.")
+        logging.critical("Missing Gemini API key. Ensure it is set in the environment variables.")
+        raise ValueError("Missing Gemini API key.")
+    
     genai.configure(api_key=GEMINI_API_KEY)
     logging.info("Gemini API successfully configured.")
 
@@ -28,7 +29,7 @@ configure_gemini()
 def get_songs_from_gemini(keyword, max_songs=5):
     """Fetch song suggestions from Gemini API based on a search keyword."""
     if not keyword or not isinstance(keyword, str):
-        logging.warning("Invalid keyword provided for Gemini API search.")
+        logging.warning("Invalid keyword for Gemini API search.")
         return []
 
     try:
