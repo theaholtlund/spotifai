@@ -71,12 +71,7 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
 
 
             # Check if the search results contain valid playlist data
-            if results and 'playlists' in results and 'items' in results['playlists']:
-                items = results['playlists']['items']
-                logging.info(f"These are the items for {name}: {items}.")
-
-                # If valid playlists are found, append the first one to the list
-                if items and items != [None]:
+                if items:
                     playlist = items[0]
                     playlists.append({
                         "name": playlist['name'],
