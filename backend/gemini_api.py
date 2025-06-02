@@ -15,8 +15,8 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 def configure_gemini():
     """Configure the Gemini API client."""
     if not GEMINI_API_KEY:
-        logging.critical("Missing Gemini API Key. Ensure it is set in environment variables.")
-        raise ValueError("Missing Gemini API Key")
+        logging.critical("Missing Gemini API Key. Ensure it is set in the environment variables.")
+        raise ValueError("Missing Gemini API Key.")
     genai.configure(api_key=GEMINI_API_KEY)
     logging.info("Gemini API successfully configured.")
 
@@ -27,7 +27,6 @@ configure_gemini()
 
 def get_songs_from_gemini(keyword, max_songs=5):
     """Fetch song suggestions from Gemini API based on a search keyword."""
-    # Add input validation
     if not keyword or not isinstance(keyword, str):
         logging.warning("Invalid keyword provided for Gemini API search.")
         return []
@@ -49,7 +48,7 @@ def get_songs_from_gemini(keyword, max_songs=5):
         if not cleaned_songs:
             logging.warning(f"No songs found for keyword: {keyword}")
 
-        logging.info(f"Gemini Suggestions: {cleaned_songs}")
+        logging.info(f"Gemini suggestions: {cleaned_songs}")
         return cleaned_songs
     except Exception as e:
         logging.error(
@@ -59,7 +58,6 @@ def get_songs_from_gemini(keyword, max_songs=5):
 
 def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     """Generate playlist name suggestions using the Gemini API based on a vibe input."""
-    # Add input validation
     if not vibe or not isinstance(vibe, str):
         logging.warning(
             "Invalid vibe provided for Gemini API playlist name generation.")
