@@ -81,12 +81,8 @@ def search_songs_with_gemini_suggestions():
         if not query:
             return error_response("Query is required and cannot be empty", 400)
 
-        # Fetch song suggestions from Gemini
-        if query in gemini_cache:
-            gemini_songs = gemini_cache[query]
-        else:
-            gemini_songs = get_songs_from_gemini(query)
-            gemini_cache[query] = gemini_songs
+        gemini_songs = gemini_cache.get(query) or get_songs_from_gemini(query)
+        gemini_cache[query] = gemini_songs
 
         if not gemini_songs:
             return error_response("No song suggestions found", 404)
