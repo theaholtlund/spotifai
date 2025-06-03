@@ -94,7 +94,11 @@ def search_songs_with_gemini_suggestions():
         logging.info(
             f"Tracks found: {len(tracks_found)}, tracks not found: {len(tracks_not_found)}")
 
-        return jsonify({"tracks_found": tracks_found, "tracks_not_found": tracks_not_found}), 200
+        return jsonify({
+            "tracks_found": tracks_found,
+            "tracks_not_found": tracks_not_found
+        }), 200
+
     except Exception as e:
         logging.exception("Unexpected error during song search")
         return error_response(f"Internal server error: {str(e)}", 500)
