@@ -91,8 +91,7 @@ def search_songs_with_gemini_suggestions():
 
         tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
 
-        logging.info(
-            f"Tracks found: {len(tracks_found)}, tracks not found: {len(tracks_not_found)}")
+        logging.info(f"Tracks found: {len(tracks_found)}, Not found: {len(tracks_not_found)}")
 
         return jsonify({
             "tracks_found": tracks_found,
