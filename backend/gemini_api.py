@@ -1,8 +1,8 @@
 # Import required libraries
 import os
-import google.generativeai as genai
 import logging
 from typing import List
+import google.generativeai as genai
 
 # Setup logging configuration
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -51,6 +51,7 @@ def get_songs_from_gemini(keyword, max_songs=5):
 
         logging.info(f"Gemini suggestions: {cleaned_songs}")
         return cleaned_songs
+
     except Exception as e:
         logging.error(
             f"Error processing Gemini API response: {e}", exc_info=True)
@@ -83,6 +84,7 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
 
         logging.info(f"Gemini Playlist Name Suggestions: {cleaned_playlists}")
         return cleaned_playlists
+
     except Exception as e:
         logging.error(
             f"Error processing Gemini API response: {e}", exc_info=True)

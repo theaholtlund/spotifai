@@ -65,7 +65,6 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
         for attempt in range(retries):
             try:
                 logging.info(f"Searching Spotify for playlist: {name}")
-                # Perform the search query on Spotify for each playlist name
                 result = sp.search(q=name, type='playlist', limit=1)
                 items = result.get('playlists', {}).get('items', [])
 
