@@ -26,7 +26,7 @@ def configure_gemini():
 configure_gemini()
 
 
-def get_songs_from_gemini(keyword, max_songs=5):
+def get_songs_from_gemini(keyword, max_songs=5) -> List[str]:
     """Fetch song suggestions from Gemini API based on a search keyword."""
     if not keyword or not isinstance(keyword, str):
         logging.warning("Invalid keyword for Gemini API search.")
