@@ -62,6 +62,10 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
     playlists = []
 
     for name in names:
+        if not name:
+            logging.warning("Empty playlist name provided. Skipping.")
+            continue
+
         for attempt in range(retries):
             try:
                 logging.info(f"Searching Spotify for playlist: {name}")
