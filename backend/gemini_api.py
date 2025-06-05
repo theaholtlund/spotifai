@@ -89,6 +89,5 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
         return cleaned_playlists
 
     except Exception as e:
-        logging.error(
-            f"Error processing Gemini API response: {e}", exc_info=True)
+        logging.error(f"Gemini API error while generating playlist names: {e}", exc_info=True)
         return []
