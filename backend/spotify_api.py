@@ -30,7 +30,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
     """Search for tracks on Spotify based on query input of title and artist."""
     # Check if the song_name format is valid, must contain a ' - '
     if ' - ' not in song_name:
-        logging.warning(f"Invalid song name format: {song_name}")
+        logging.warning(f"Invalid song name format, expected 'Title - Artist': {song_name}")
         return []
 
     title, artist = map(str.strip, song_name.split(' - ', 1))
@@ -38,7 +38,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
 
     for attempt in range(retries):
         try:
-            logging.info(f"Searching Spotify for: {song_name}")
+            logging.info(f"Searching Spotify for track: {song_name}")
             result = sp.search(q=query, type='track', limit=1)
             return result.get('tracks', {}).get('items', [])
         except spotipy.exceptions.SpotifyException as e:
