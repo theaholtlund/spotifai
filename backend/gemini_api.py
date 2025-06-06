@@ -39,13 +39,9 @@ def get_songs_from_gemini(keyword, max_songs=5) -> List[str]:
             f"Song - Artist related to the word: {keyword}, with no other text than this"
         )
 
-        try:
-            response = model.generate_content(prompt)
-        except Exception as e:
-            logging.error(f"Gemini API error: {e}", exc_info=True)
-            return []
 
         # Parse and clean response
+        response = model.generate_content(prompt)
         songs = response.text.strip().split('\n')
         cleaned_songs = [song.strip() for song in songs if '-' in song]
 
