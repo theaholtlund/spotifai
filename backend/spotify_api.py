@@ -20,7 +20,8 @@ try:
         client_id=os.getenv("SPOTIFY_CLIENT_ID"),
         client_secret=os.getenv("SPOTIFY_CLIENT_SECRET")
     ))
-    logging.info("Spotify client authenticated.")
+
+    logging.info("Spotify client authenticated successfully.")
 except Exception:
     logging.critical("Failed to authenticate Spotify API", exc_info=True)
     raise
