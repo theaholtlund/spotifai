@@ -51,8 +51,7 @@ def get_songs_from_gemini(keyword, max_songs=5) -> List[str]:
         return cleaned_songs
 
     except Exception as e:
-        logging.error(
-            f"Error processing Gemini API response: {e}", exc_info=True)
+        logging.error(f"Gemini API error while fetching songs: {e}", exc_info=True)
         return []
 
 
