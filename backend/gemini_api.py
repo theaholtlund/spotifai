@@ -57,9 +57,8 @@ def get_songs_from_gemini(keyword, max_songs=5) -> List[str]:
 
 def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
     """Generate playlist name suggestions using the Gemini API based on a vibe input."""
-    if not vibe or not isinstance(vibe, str):
-        logging.warning(
-            "Invalid vibe provided for Gemini API playlist name generation.")
+    if not isinstance(vibe, str) or not vibe.strip():
+        logging.warning("Invalid vibe for Gemini API playlist name generation.")
         return []
 
     try:
