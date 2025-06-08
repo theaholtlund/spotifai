@@ -51,7 +51,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
                 logging.error(f"Spotify API error: {e}", exc_info=True)
                 break
         except Exception as e:
-            logging.error(f"Unexpected error: {e}", exc_info=True)
+            logging.error(f"Unexpected error during track search '{song_name}': {e}", exc_info=True)
             break
 
     return []
