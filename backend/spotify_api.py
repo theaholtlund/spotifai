@@ -72,8 +72,6 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                 result = sp.search(q=name, type='playlist', limit=1)
                 items = result.get('playlists', {}).get('items', [])
 
-
-            # Check if the search results contain valid playlist data
                 if items:
                     playlist = items[0]
                     playlists.append({
@@ -85,8 +83,8 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                 break  # Stop retrying if successful
 
             except spotipy.exceptions.SpotifyException as e:
-                # Handle rate limit exceptions and retry if necessary
-                if 'rate limit exceeded' in str(e).lower():
+                msg = str(e).lower()
+                if 'rate limit' in msg:
                     wait_time = delay * (2 ** attempt)
                     logging.warning(f"Rate limited. Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
