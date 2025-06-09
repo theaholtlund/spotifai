@@ -68,13 +68,7 @@ def suggest_playlist_names(vibe: str, max_names: int = 5) -> List[str]:
             f"Only return a list of names, no extra text."
         )
 
-        try:
-            response = model.generate_content(prompt)
-        except Exception as e:
-            logging.error(f"Gemini API error: {e}", exc_info=True)
-            return []
-
-        # Parse and clean response
+        response = model.generate_content(prompt)
         playlists = response.text.strip().split('\n')
         cleaned_playlists = [name.strip() for name in playlists if name]
 
