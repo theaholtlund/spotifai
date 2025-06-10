@@ -42,8 +42,8 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
             result = sp.search(q=query, type='track', limit=1)
             return result.get('tracks', {}).get('items', [])
         except spotipy.exceptions.SpotifyException as e:
-            # Handle rate limit exceptions and retry if necessary
-            if 'rate limit exceeded' in str(e).lower():
+            msg = str(e).lower()
+            if 'rate limit' in msg:
                 wait_time = delay * (2 ** attempt)
                 logging.warning(f"Rate limit exceeded. Retrying in {wait_time} seconds...")
                 time.sleep(wait_time) # Wait before retrying and retry with increased delay
