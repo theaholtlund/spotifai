@@ -48,7 +48,7 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
                 logging.warning(f"Rate limit hit. Retrying in {wait_time} seconds...")
                 time.sleep(wait_time)
             else:
-                logging.error(f"Spotify API error: {e}", exc_info=True)
+                logging.error(f"Spotify API error while searching track '{song_name}': {e}", exc_info=True)
                 break
         except Exception as e:
             logging.error(f"Unexpected error during track search '{song_name}': {e}", exc_info=True)
@@ -86,7 +86,7 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                 msg = str(e).lower()
                 if 'rate limit' in msg:
                     wait_time = delay * (2 ** attempt)
-                    logging.warning(f"Rate limited. Retrying in {wait_time} seconds...")
+                    logging.warning(f"Rate limit hit while searching playlist '{name}'. Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
                 else:
                     logging.error(f"Spotify API error while searching playlist '{name}': {e}", exc_info=True)
