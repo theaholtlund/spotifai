@@ -89,7 +89,7 @@ def search_public_playlists_by_name(names: List[str], retries: int = 3, delay: i
                     logging.warning(f"Rate limited. Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
                 else:
-                    logging.error(f"Spotify API error: {e}", exc_info=True)
+                    logging.error(f"Spotify API error while searching playlist '{name}': {e}", exc_info=True)
                     break
             except Exception as e:
                 logging.error(f"Unexpected error while searching for playlist '{name}': {e}", exc_info=True)
