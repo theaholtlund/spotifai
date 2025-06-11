@@ -45,8 +45,8 @@ def search_spotify_tracks(song_name: str, retries: int = 3, delay: int = 1) -> L
             msg = str(e).lower()
             if 'rate limit' in msg:
                 wait_time = delay * (2 ** attempt)
-                logging.warning(f"Rate limit exceeded. Retrying in {wait_time} seconds...")
-                time.sleep(wait_time) # Wait before retrying and retry with increased delay
+                logging.warning(f"Rate limit hit. Retrying in {wait_time} seconds...")
+                time.sleep(wait_time)
             else:
                 logging.error(f"Spotify API error: {e}", exc_info=True)
                 break
