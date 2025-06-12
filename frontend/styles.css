@@ -35,8 +35,9 @@ main {
   padding-top: 2rem;
 }
 
-/* === HEADER STYLING === */
-header {
+/* === HEADER & FOOTER === */
+header,
+footer {
   width: 100%;
   padding: 20px 0;
   background-color: var(--primary-color);
@@ -260,13 +261,6 @@ button:hover {
     transform: scale(1);
     opacity: 1;
   }
-}
-
-/* === FOOTER STYLING === */
-footer {
-  margin-top: 50px;
-  padding: 20px 0;
-  background-color: var(--primary-color);
 }
 
 /* === RESPONSIVE DESIGN === */
