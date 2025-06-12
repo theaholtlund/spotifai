@@ -3,6 +3,7 @@
   --primary-color: #ffb86e;
   --secondary-color: #ff9934;
   --background-color: #f8f9fa;
+  --title-color: #c09d77;
   --text-color: #333;
 }
 
@@ -23,7 +24,7 @@ h2 {
 }
 
 h1 {
-  color: white;
+  color: var(--title-color);
 }
 
 h2 {
