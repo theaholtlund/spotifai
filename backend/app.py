@@ -74,9 +74,9 @@ def search_songs_with_gemini_suggestions():
     """Endpoint to search for songs and fetch Gemini suggestions."""
     try:
         data = request.get_json()
-
         query = (data or {}).get('query', '').strip()
-        logging.info(f"Received query: {query} for song search")
+
+        logging.info(f"Received query: {query}")
 
         if not query:
             return error_response("Query is required and cannot be empty", 400)
