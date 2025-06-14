@@ -23,6 +23,7 @@ spotify_cache = TTLCache(maxsize=100, ttl=300)  # 5 minutes cache
 # Rate limiting setup
 RATE_LIMIT = 5  # Requests per minute
 request_times = []
+search_history = []
 
 
 def rate_limit(func):
@@ -92,6 +93,12 @@ def search_songs_with_gemini_suggestions():
         tracks_found, tracks_not_found = find_spotify_tracks(gemini_songs)
 
         logging.info(f"Tracks found: {len(tracks_found)}, Not found: {len(tracks_not_found)}")
+        search_history.append({
+            "query": query,
+            "timestamp": time.strftime('%Y-%m-%d %H:%M:%S'),
+            "tracks_found": [t['name'] for t in tracks_found],
+            "not_found": tracks_not_found
+        })
 
         return jsonify({
             "tracks_found": tracks_found,
