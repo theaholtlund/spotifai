@@ -126,6 +126,11 @@ def suggest_playlists():
         return error_response(f"Internal server error: {str(e)}", 500)
 
 
+@app.route('/history', methods=['GET'])
+def get_search_history():
+    return jsonify({"history": search_history[-10:]}), 200
+
+
 @app.route('/health', methods=['GET'])
 def health_check():
     return make_response(jsonify({'status': 'ok'}), 200)
