@@ -159,3 +159,27 @@ document
       displayError("Failed to fetch playlist suggestions.");
     }
   });
+
+// View the song search history
+document
+  .getElementById("viewHistoryButton")
+  .addEventListener("click", async () => {
+    const res = await fetch(`${API_BASE}/history`);
+    const data = await res.json();
+    const history = data.history || [];
+
+    const container = document.getElementById("historyContainer");
+    container.innerHTML = "";
+
+    history.reverse().forEach((item) => {
+      const div = document.createElement("div");
+      div.className = "history-item";
+      div.innerHTML = `
+        <strong>${item.timestamp}</strong> — <em>${item.query}</em><br/>
+        ✅ Found: ${item.tracks_found.join(", ") || "None"}<br/>
+        ❌ Not found: ${item.not_found.join(", ") || "None"}
+        <hr/>
+      `;
+      container.appendChild(div);
+    });
+  });
