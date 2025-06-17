@@ -268,8 +268,7 @@ button:hover {
   }
 
   .track-image {
-    margin-right: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
   }
 
   .track-details {
@@ -277,7 +276,6 @@ button:hover {
   }
 }
 
-/* Reduce font size for screens 600px or less to improve readability */
 @media (max-width: 600px) {
   body {
     font-size: 14px;
