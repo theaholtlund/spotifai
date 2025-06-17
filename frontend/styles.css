@@ -129,7 +129,8 @@ button:hover {
 }
 
 /* === RESULTS SECTION === */
-#results {
+#results,
+.playlist-suggestions {
   margin-top: 20px;
   padding: 10px;
 }
@@ -169,11 +170,6 @@ button:hover {
 .playlist-suggestion-item a:hover {
   color: var(--secondary-color);
   text-decoration: underline;
-}
-
-.playlist-suggestions {
-  margin-top: 20px;
-  padding: 10px;
 }
 
 .playlist-suggestions p {
