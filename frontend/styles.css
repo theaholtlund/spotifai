@@ -281,3 +281,8 @@ button:hover {
     font-size: 14px;
   }
 }
+
+.search-history {
+  margin-top: 1em;
+  padding: 1em;
+}
