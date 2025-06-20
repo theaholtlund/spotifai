@@ -132,6 +132,7 @@ def suggest_playlists():
 
 @app.route('/history', methods=['GET'])
 def get_search_history():
+    """Return the most recent ten searches for history."""
     return jsonify({"history": search_history[-10:]}), 200
 
 
