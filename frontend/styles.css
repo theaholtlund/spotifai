@@ -214,12 +214,10 @@ button:hover {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin: 0;
 }
 
 #not-found li {
   font-size: 14px;
-  color: #d9534f;
   padding: 5px;
   margin: 5px 0;
   background: white;
@@ -297,6 +295,7 @@ button:hover {
   }
 }
 
+/* === SEARCH HISTORY === */
 .search-history {
   margin-top: 1em;
   padding: 1em;
