@@ -196,18 +196,23 @@ button:hover {
   padding: 15px;
   max-width: 600px;
   border-radius: 10px;
-  background-color: rgba(255, 0, 0, 0.1);
+  background: rgba(255, 0, 0, 0.1);
   border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
-#not-found p {
-  font-size: 16px;
+#not-found p,
+#not-found li {
   color: #d9534f;
   font-weight: bold;
 }
 
+#not-found p {
+  font-size: inherit;
+}
+
 #not-found ul {
-  list-style-type: none;
+  list-style: none;
+  margin: 0;
   padding: 0;
   margin: 0;
 }
