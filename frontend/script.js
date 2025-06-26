@@ -172,6 +172,11 @@ document
       const container = document.getElementById("historyContainer");
       container.innerHTML = "";
 
+      if (!history.length) {
+        container.textContent = "No recent history.";
+        return;
+      }
+
       history.reverse().forEach((item) => {
         const div = document.createElement("div");
         div.className = "history-item";
