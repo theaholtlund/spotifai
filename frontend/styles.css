@@ -57,11 +57,11 @@ footer {
   justify-content: center;
   gap: 2rem;
   list-style: none;
-  padding: 0;
   margin: 0;
   padding: 1.5rem 0 0;
   background: var(--primary-color);
   position: relative;
+  z-index: 1;
 }
 
 .nav-list a {
@@ -135,7 +135,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
 }
 
 /* === RESULTS SECTION === */
