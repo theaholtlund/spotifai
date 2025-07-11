@@ -48,7 +48,7 @@
           </div>
         </div>
         <div id="spinner" class="spinner hidden" aria-busy="true"></div>
-        <div id="results" aria-live="polite"></div>
+        <section id="results" aria-live="polite"></section>
         <div id="not-found" class="not-found hidden" aria-live="polite"></div>
         <div
           id="error-message"
@@ -57,7 +57,7 @@
         ></div>
       </section>
 
-      <section>
+      <section aria-label="Playlist Suggestions">
         <h2>Suggest a Playlist</h2>
         <div class="playlist-suggestion">
           <input type="text" id="vibeInput" placeholder="What's your vibe?" />
@@ -66,7 +66,7 @@
         <div id="playlistSuggestions" class="playlist-suggestions"></div>
       </section>
 
-      <section>
+      <section aria-label="Search History">
         <h2>Song Search History</h2>
         <button id="viewHistoryButton">View Search History</button>
         <div id="historyContainer" class="search-history"></div>
